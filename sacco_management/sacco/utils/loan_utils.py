@@ -339,3 +339,102 @@ def create_interest_accrual_entry(loan, accrual):
                 credit=0,
                 remarks="Accrued interest receivable"
             )
+
+
+def calculate_loan_summary(loan_id=None):
+    """
+    Calculate comprehensive loan summary statistics
+    
+    Args:
+        loan_id: Optional specific loan ID. If None, returns system-wide summary
+    
+    Returns:
+        dict: Loan summary statistics
+    
+    Example:
+        >>> # System-wide summary
+        >>> calculate_loan_summary()
+        {'total_loans': 150, 'total_disbursed': 5000000, 'total_outstanding': 3500000, ...}
+        
+        >>> # Single loan summary
+        >>> calculate_loan_summary("LOAN-2024-001")
+        {'loan_id': 'LOAN-2024-001', 'principal': 100000, 'outstanding': 75000, ...}
+    """
+    if loan_id:
+        # Single loan summary
+        try:
+            loan = frappe.get_doc("Loan Application", loan_id)
+            
+            outstanding = get_outstanding_principal(loan_id)
+            
+            # Get total repayments
+            total_repaid = frappe.db.sql("""
+                SELECT COALESCE(SUM(total_amount), 0)
+                FROM `tabLoan Repayment`
+                WHERE loan_application = %s AND docstatus = 1
+            """, (loan_id,))[0][0] or 0
+            
+            # Get total interest charged
+            total_interest = frappe.db.sql("""
+                SELECT COALESCE(SUM(interest_amount), 0)
+                FROM `tabLoan Ledger`
+                WHERE loan_application = %s
+            """, (loan_id,))[0][0] or 0
+            
+            return {
+                "loan_id": loan_id,
+                "member": loan.member,
+                "loan_type": loan.loan_type,
+                "principal_amount": flt(loan.amount_approved),
+                "outstanding_principal": outstanding,
+                "total_repaid": flt(total_repaid),
+                "total_interest_charged": flt(total_interest),
+                "status": loan.status,
+                "interest_rate": loan.interest_rate,
+                "repayment_period": loan.repayment_period
+            }
+            
+        except Exception as e:
+            frappe.log_error(f"Error calculating loan summary for {loan_id}: {str(e)}")
+            return {"error": str(e), "loan_id": loan_id}
+    
+    else:
+        # System-wide summary
+        stats = frappe.db.sql("""
+            SELECT 
+                COUNT(*) as total_loans,
+                COALESCE(SUM(amount_approved), 0) as total_approved,
+                COALESCE(SUM(amount_disbursed), 0) as total_disbursed,
+                COALESCE(SUM(outstanding_principal), 0) as total_outstanding
+            FROM `tabLoan Application`
+            WHERE docstatus = 1 
+            AND status IN ('Disbursed', 'Active')
+        """, as_dict=True)[0]
+        
+        # Get portfolio at risk (loans with arrears > 30 days)
+        par_30 = frappe.db.sql("""
+            SELECT COUNT(*) 
+            FROM `tabLoan Application`
+            WHERE docstatus = 1 
+            AND status IN ('Disbursed', 'Active')
+            AND overdue_amount > 0
+            AND DATEDIFF(CURDATE(), expected_disbursement_date) > 30
+        """)[0][0] or 0
+        
+        # Get non-performing loans
+        npl = frappe.db.sql("""
+            SELECT COUNT(*)
+            FROM `tabLoan Application`
+            WHERE docstatus = 1 
+            AND status = 'Non-Performing'
+        """)[0][0] or 0
+        
+        return {
+            "total_loans": stats.total_loans or 0,
+            "total_approved": flt(stats.total_approved, 2),
+            "total_disbursed": flt(stats.total_disbursed, 2),
+            "total_outstanding": flt(stats.total_outstanding, 2),
+            "portfolio_at_risk_30": par_30,
+            "non_performing_loans": npl,
+            "calculation_date": nowdate()
+        }
