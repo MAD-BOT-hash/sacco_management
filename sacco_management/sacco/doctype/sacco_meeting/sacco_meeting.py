@@ -7,7 +7,7 @@ from frappe.model.document import Document
 from frappe.utils import flt, getdate, get_time, time_diff_in_hours, today
 
 
-class SACCOMeeting(Document):
+class SaccoMeeting(Document):
     def validate(self):
         self.validate_dates()
         self.calculate_duration()

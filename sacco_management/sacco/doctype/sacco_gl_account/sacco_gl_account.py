@@ -3,7 +3,7 @@ from frappe.model.document import Document
 from frappe import _
 
 
-class SACCOGLAccount(Document):
+class SaccoGlAccount(Document):
     def validate(self):
         self.validate_parent_account()
         self.validate_group_account()

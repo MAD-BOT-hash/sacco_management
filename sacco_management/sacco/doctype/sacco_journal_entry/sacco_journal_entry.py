@@ -4,7 +4,7 @@ from frappe import _
 from frappe.utils import flt
 
 
-class SACCOJournalEntry(Document):
+class SaccoJournalEntry(Document):
     def validate(self):
         self.calculate_totals()
         self.validate_balance()

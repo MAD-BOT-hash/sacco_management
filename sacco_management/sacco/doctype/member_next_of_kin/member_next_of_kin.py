@@ -1,5 +1,5 @@
 from frappe.model.document import Document
 
 
-class MemberNextofKin(Document):
+class MemberNextOfKin(Document):
     pass

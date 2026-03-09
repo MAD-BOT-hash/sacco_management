@@ -4,7 +4,7 @@ from frappe import _
 from frappe.utils import getdate, nowdate, date_diff, flt
 
 
-class SACCOMember(Document):
+class SaccoMember(Document):
     def validate(self):
         self.validate_id_number()
         self.validate_age()
