@@ -1,0 +1,23 @@
+{
+ "chart_name": "System Performance Metrics",
+ "chart_type": "Custom",
+ "doctype": "Dashboard Chart",
+ "document_type": "SACCO Member",
+ "dynamic_filters_json": "[]",
+ "filters_json": "[[\"SACCO Member\",\"membership_status\",\"=\",\"Active\",false]]",
+ "group_by_type": "Count",
+ "is_public": 1,
+ "is_standard": true,
+ "module": "SACCO",
+ "number_of_groups": 0,
+ "timeseries": 1,
+ "timespan": "Last Year",
+ "time_interval": "Monthly",
+ "value_based_on": "",
+ "y_axis": [
+  {
+   "color": "green",
+   "label": "New Members"
+  }
+ ]
+}

@@ -1,0 +1,310 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "loan_application",
+  "member",
+  "member_name",
+  "column_break_1",
+  "restructure_date",
+  "status",
+  "amended_from",
+  "section_break_current_status",
+  "current_outstanding_principal",
+  "current_interest_due",
+  "current_penalty_due",
+  "column_break_2",
+  "total_amount_due",
+  "overdue_days",
+  "loan_classification",
+  "section_break_proposed_terms",
+  "new_interest_rate",
+  "new_repayment_period",
+  "new_emi_amount",
+  "column_break_3",
+  "grace_period_months",
+  "new_first_payment_date",
+  "restructure_reason",
+  "section_break_charges",
+  "restructure_fee",
+  "legal_charges",
+  "other_charges",
+  "column_break_4",
+  "total_restructure_charges",
+  "section_break_approval",
+  "approved_by",
+  "approval_date",
+  "column_break_5",
+  "remarks",
+  "section_break_details",
+  "details_of_restructure"
+ ],
+ "fields": [
+  {
+   "default": "LR-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "reqd": 1,
+   "options": "LR-.YYYY.-.#####"
+  },
+  {
+   "fieldname": "loan_application",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Loan Application",
+   "options": "Loan Application",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "loan_application.member",
+   "fieldname": "member",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "label": "Member",
+   "options": "SACCO Member",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "loan_application.member_name",
+   "fieldname": "member_name",
+   "fieldtype": "Data",
+   "label": "Member Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "restructure_date",
+   "fieldtype": "Date",
+   "label": "Restructure Date",
+   "reqd": 1
+  },
+  {
+   "default": "Pending",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Pending\nApproved\nRejected\nCompleted",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Loan Restructure",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_current_status",
+   "fieldtype": "Section Break",
+   "label": "Current Loan Status"
+  },
+  {
+   "fieldname": "current_outstanding_principal",
+   "fieldtype": "Currency",
+   "label": "Current Outstanding Principal",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "current_interest_due",
+   "fieldtype": "Currency",
+   "label": "Current Interest Due",
+   "read_only": 1
+  },
+  {
+   "fieldname": "current_penalty_due",
+   "fieldtype": "Currency",
+   "label": "Current Penalty Due",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_amount_due",
+   "fieldtype": "Currency",
+   "label": "Total Amount Due",
+   "read_only": 1
+  },
+  {
+   "fieldname": "overdue_days",
+   "fieldtype": "Int",
+   "label": "Overdue Days",
+   "read_only": 1
+  },
+  {
+   "fieldname": "loan_classification",
+   "fieldtype": "Select",
+   "label": "Loan Classification",
+   "options": "Standard\nWatch List\nSubstandard\nDoubtful\nLoss",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_proposed_terms",
+   "fieldtype": "Section Break",
+   "label": "Proposed New Terms"
+  },
+  {
+   "depends_on": "eval:doc.new_interest_rate",
+   "fieldname": "new_interest_rate",
+   "fieldtype": "Percent",
+   "label": "New Interest Rate"
+  },
+  {
+   "depends_on": "eval:doc.new_repayment_period",
+   "fieldname": "new_repayment_period",
+   "fieldtype": "Int",
+   "label": "New Repayment Period (Months)"
+  },
+  {
+   "fieldname": "new_emi_amount",
+   "fieldtype": "Currency",
+   "label": "New EMI Amount",
+   "read_only_depends_on": "eval:doc.new_interest_rate && doc.new_repayment_period"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "grace_period_months",
+   "fieldtype": "Int",
+   "label": "Grace Period (Months)"
+  },
+  {
+   "fieldname": "new_first_payment_date",
+   "fieldtype": "Date",
+   "label": "New First Payment Date"
+  },
+  {
+   "fieldname": "restructure_reason",
+   "fieldtype": "Small Text",
+   "label": "Restructure Reason",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_charges",
+   "fieldtype": "Section Break",
+   "label": "Restructure Charges"
+  },
+  {
+   "default": "0",
+   "fieldname": "restructure_fee",
+   "fieldtype": "Currency",
+   "label": "Restructure Fee"
+  },
+  {
+   "default": "0",
+   "fieldname": "legal_charges",
+   "fieldtype": "Currency",
+   "label": "Legal Charges"
+  },
+  {
+   "default": "0",
+   "fieldname": "other_charges",
+   "fieldtype": "Currency",
+   "label": "Other Charges"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_restructure_charges",
+   "fieldtype": "Currency",
+   "label": "Total Restructure Charges",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_approval",
+   "fieldtype": "Section Break",
+   "label": "Approval"
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "Approved By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approval_date",
+   "fieldtype": "Date",
+   "label": "Approval Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "section_break_details",
+   "fieldtype": "Section Break",
+   "label": "Details of Restructure"
+  },
+  {
+   "fieldname": "details_of_restructure",
+   "fieldtype": "Text Editor",
+   "label": "Details of Restructure"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Sacco",
+ "name": "Loan Restructure",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "SACCO Admin",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Loan Officer",
+   "select": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Accountant",
+   "select": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

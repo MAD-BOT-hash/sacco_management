@@ -1,0 +1,351 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "member",
+  "member_name",
+  "product",
+  "column_break_1",
+  "account_name",
+  "status",
+  "opening_date",
+  "section_break_balance",
+  "balance",
+  "available_balance",
+  "column_break_2",
+  "accrued_interest",
+  "total_deposit",
+  "total_withdrawal",
+  "section_break_limits",
+  "min_balance",
+  "max_balance",
+  "overdraft_limit",
+  "column_break_3",
+  "withdrawals_this_month",
+  "last_withdrawal_date",
+  "section_break_interest",
+  "interest_rate",
+  "interest_calculation_method",
+  "last_interest_calculation_date",
+  "column_break_4",
+  "next_interest_posting_date",
+  "total_interest_earned",
+  "section_break_accounting",
+  "default_gl_account",
+  "interest_gl_account",
+  "column_break_5",
+  "branch",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "default": "SAV-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "reqd": 1,
+   "options": "SAV-.YYYY.-.#####"
+  },
+  {
+   "fieldname": "member",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Member",
+   "options": "SACCO Member",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "member.member_name",
+   "fieldname": "member_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Member Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "product",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Savings Product",
+   "options": "Savings Product",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "product.product_name",
+   "fieldname": "account_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "Account Name",
+   "read_only": 1
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Active\nDormant\nFrozen\nClosed\nInactive"
+  },
+  {
+   "default": "Today",
+   "fieldname": "opening_date",
+   "fieldtype": "Date",
+   "label": "Opening Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_balance",
+   "fieldtype": "Section Break",
+   "label": "Balance Information"
+  },
+  {
+   "default": "0",
+   "fieldname": "balance",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Current Balance",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "available_balance",
+   "fieldtype": "Currency",
+   "label": "Available Balance",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "accrued_interest",
+   "fieldtype": "Currency",
+   "label": "Accrued Interest (Unposted)",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_deposit",
+   "fieldtype": "Currency",
+   "label": "Total Deposits",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_withdrawal",
+   "fieldtype": "Currency",
+   "label": "Total Withdrawals",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_limits",
+   "fieldtype": "Section Break",
+   "label": "Limits & Restrictions"
+  },
+  {
+   "default": "0",
+   "fieldname": "min_balance",
+   "fieldtype": "Currency",
+   "label": "Minimum Required Balance",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "max_balance",
+   "fieldtype": "Currency",
+   "label": "Maximum Balance Limit",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "overdraft_limit",
+   "fieldtype": "Currency",
+   "label": "Overdraft Limit",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "withdrawals_this_month",
+   "fieldtype": "Int",
+   "label": "Withdrawals This Month",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_withdrawal_date",
+   "fieldtype": "Date",
+   "label": "Last Withdrawal Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_interest",
+   "fieldtype": "Section Break",
+   "label": "Interest Details"
+  },
+  {
+   "default": "0",
+   "fieldname": "interest_rate",
+   "fieldtype": "Percent",
+   "label": "Interest Rate (%)",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "product.interest_calculation_method",
+   "fieldname": "interest_calculation_method",
+   "fieldtype": "Data",
+   "label": "Interest Calculation Method",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_interest_calculation_date",
+   "fieldtype": "Date",
+   "label": "Last Interest Calculation Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "next_interest_posting_date",
+   "fieldtype": "Date",
+   "label": "Next Interest Posting Date",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_interest_earned",
+   "fieldtype": "Currency",
+   "label": "Total Interest Earned (Lifetime)",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_accounting",
+   "fieldtype": "Section Break",
+   "label": "Accounting"
+  },
+  {
+   "fetch_from": "product.default_gl_account",
+   "fieldname": "default_gl_account",
+   "fieldtype": "Link",
+   "label": "Default GL Account",
+   "options": "SACCO GL Account",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "product.interest_gl_account",
+   "fieldname": "interest_gl_account",
+   "fieldtype": "Link",
+   "label": "Interest GL Account",
+   "options": "SACCO GL Account",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "member.branch",
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "label": "Branch",
+   "options": "Branch",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Savings Account",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Savings Deposit",
+   "link_fieldname": "account"
+  },
+  {
+   "link_doctype": "Savings Withdrawal",
+   "link_fieldname": "account"
+  },
+  {
+   "link_doctype": "Savings Transaction",
+   "link_fieldname": "account"
+  }
+ ],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "SACCO",
+ "name": "Savings Account",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Teller",
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Auditor"
+  }
+ ],
+ "search_fields": "member, member_name, account_name, status",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

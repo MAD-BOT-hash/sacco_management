@@ -1,0 +1,408 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "loan_application",
+  "member",
+  "member_name",
+  "column_break_1",
+  "appraisal_date",
+  "appraised_by",
+  "status",
+  "section_break_financial_analysis",
+  "monthly_income",
+  "monthly_expenses",
+  "existing_loan_obligations",
+  "column_break_2",
+  "debt_to_income_ratio",
+  "disposable_income",
+  "savings_ratio",
+  "section_break_credit_assessment",
+  "credit_score",
+  "credit_history_rating",
+  "past_defaults",
+  "column_break_3",
+  "guarantor_strength",
+  "collateral_coverage",
+  "overall_risk_rating",
+  "section_break_employment",
+  "employment_status",
+  "employer_name",
+  "years_of_service",
+  "column_break_4",
+  "employment_stability_score",
+  "income_stability_rating",
+  "section_break_recommendation",
+  "recommended_amount",
+  "recommended_tenure",
+  "recommended_interest_rate",
+  "column_break_5",
+  "approval_recommendation",
+  "conditions_if_any",
+  "section_break_analysis",
+  "financial_analysis_summary",
+  "risk_factors_identified",
+  "column_break_6",
+  "strengths",
+  "weaknesses",
+  "section_break_remarks",
+  "appraisal_remarks",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "default": "LAPR-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "reqd": 1,
+   "options": "LAPR-.YYYY.-.#####"
+  },
+  {
+   "fieldname": "loan_application",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Loan Application",
+   "options": "Loan Application",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "loan_application.member",
+   "fieldname": "member",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Member",
+   "options": "SACCO Member",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "loan_application.member_name",
+   "fieldname": "member_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Member Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "appraisal_date",
+   "fieldtype": "Date",
+   "label": "Appraisal Date",
+   "reqd": 1
+  },
+  {
+   "default": "__user",
+   "fieldname": "appraised_by",
+   "fieldtype": "Link",
+   "label": "Appraised By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nIn Progress\nCompleted\nSubmitted",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_financial_analysis",
+   "fieldtype": "Section Break",
+   "label": "Financial Analysis"
+  },
+  {
+   "default": "0",
+   "fieldname": "monthly_income",
+   "fieldtype": "Currency",
+   "label": "Monthly Gross Income"
+  },
+  {
+   "default": "0",
+   "fieldname": "monthly_expenses",
+   "fieldtype": "Currency",
+   "label": "Monthly Living Expenses"
+  },
+  {
+   "default": "0",
+   "fieldname": "existing_loan_obligations",
+   "fieldtype": "Currency",
+   "label": "Existing Monthly Loan Obligations"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "debt_to_income_ratio",
+   "fieldtype": "Percent",
+   "label": "Debt-to-Income Ratio (%)",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "disposable_income",
+   "fieldtype": "Currency",
+   "label": "Monthly Disposable Income",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "savings_ratio",
+   "fieldtype": "Percent",
+   "label": "Savings to Income Ratio (%)"
+  },
+  {
+   "fieldname": "section_break_credit_assessment",
+   "fieldtype": "Section Break",
+   "label": "Credit Assessment"
+  },
+  {
+   "default": "0",
+   "fieldname": "credit_score",
+   "fieldtype": "Int",
+   "label": "Credit Score (0-100)"
+  },
+  {
+   "default": "Good",
+   "fieldname": "credit_history_rating",
+   "fieldtype": "Select",
+   "label": "Credit History Rating",
+   "options": "Excellent\nGood\nFair\nPoor\nNo History"
+  },
+  {
+   "default": "0",
+   "fieldname": "past_defaults",
+   "fieldtype": "Int",
+   "label": "Number of Past Defaults"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "guarantor_strength",
+   "fieldtype": "Percent",
+   "label": "Guarantor Strength (% Coverage)"
+  },
+  {
+   "default": "0",
+   "fieldname": "collateral_coverage",
+   "fieldtype": "Percent",
+   "label": "Collateral Coverage (% of Loan)"
+  },
+  {
+   "default": "Medium",
+   "fieldname": "overall_risk_rating",
+   "fieldtype": "Select",
+   "label": "Overall Risk Rating",
+   "options": "Very Low\nLow\nMedium\nHigh\nVery High",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_employment",
+   "fieldtype": "Section Break",
+   "label": "Employment & Income Stability"
+  },
+  {
+   "default": "Employed",
+   "fieldname": "employment_status",
+   "fieldtype": "Select",
+   "label": "Employment Status",
+   "options": "Employed\nSelf-Employed\nBusiness Owner\nRetired\nUnemployed"
+  },
+  {
+   "fieldname": "employer_name",
+   "fieldtype": "Data",
+   "label": "Employer Name"
+  },
+  {
+   "default": "0",
+   "fieldname": "years_of_service",
+   "fieldtype": "Float",
+   "label": "Years of Service/In Business"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "50",
+   "fieldname": "employment_stability_score",
+   "fieldtype": "Int",
+   "label": "Employment Stability Score (0-100)"
+  },
+  {
+   "default": "50",
+   "fieldname": "income_stability_rating",
+   "fieldtype": "Int",
+   "label": "Income Stability Rating (0-100)"
+  },
+  {
+   "fieldname": "section_break_recommendation",
+   "fieldtype": "Section Break",
+   "label": "Loan Recommendation"
+  },
+  {
+   "default": "0",
+   "fieldname": "recommended_amount",
+   "fieldtype": "Currency",
+   "label": "Recommended Loan Amount"
+  },
+  {
+   "default": "0",
+   "fieldname": "recommended_tenure",
+   "fieldtype": "Int",
+   "label": "Recommended Tenure (Months)"
+  },
+  {
+   "default": "0",
+   "fieldname": "recommended_interest_rate",
+   "fieldtype": "Percent",
+   "label": "Recommended Interest Rate (%)"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Recommend Approval",
+   "fieldname": "approval_recommendation",
+   "fieldtype": "Select",
+   "label": "Recommendation",
+   "options": "Recommend Approval\nRecommend with Conditions\nRecommend Rejection\nNeed More Information"
+  },
+  {
+   "fieldname": "conditions_if_any",
+   "fieldtype": "Small Text",
+   "label": "Conditions (if any)"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_analysis",
+   "fieldtype": "Section Break",
+   "label": "Detailed Analysis"
+  },
+  {
+   "fieldname": "financial_analysis_summary",
+   "fieldtype": "Text Editor",
+   "label": "Financial Analysis Summary"
+  },
+  {
+   "fieldname": "risk_factors_identified",
+   "fieldtype": "Small Text",
+   "label": "Risk Factors Identified"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "strengths",
+   "fieldtype": "Small Text",
+   "label": "Application Strengths"
+  },
+  {
+   "fieldname": "weaknesses",
+   "fieldtype": "Small Text",
+   "label": "Application Weaknesses"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_remarks",
+   "fieldtype": "Section Break",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "appraisal_remarks",
+   "fieldtype": "Text Editor",
+   "label": "Appraisal Remarks"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Loan Appraisal",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "SACCO",
+ "name": "Loan Appraisal",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Admin",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Loan Officer",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Auditor"
+  }
+ ],
+ "search_fields": "loan_application, member, member_name, appraisal_date",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

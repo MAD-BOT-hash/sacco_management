@@ -1,10 +1,69 @@
 """
 Monthly Scheduled Tasks for SACCO Management System
+
+These tasks run monthly via Frappe scheduler:
+- Calculate and post interest on savings accounts
+- Generate monthly statements for members
+- Process savings interest posting for all eligible accounts
+- Accrue loan interest for the month
 """
 
 import frappe
 from frappe import _
 from frappe.utils import nowdate, getdate, add_months, get_first_day, get_last_day, flt
+
+
+def process_savings_interest_posting():
+    """
+    Process monthly interest posting for all savings accounts
+    This calculates and posts interest to member savings accounts
+    """
+    from sacco_management.sacco.utils.savings_utils import process_monthly_interest
+    
+    try:
+        stats = process_monthly_interest()
+        
+        frappe.log_error(
+            message=f"Monthly Interest Posting Complete: {stats['processed']}/{stats['total_accounts']} accounts, Total Interest: {stats['total_interest_posted']}",
+            title="Monthly Savings Interest Posting"
+        )
+        
+        return stats
+    except Exception as e:
+        frappe.log_error(
+            message=str(e),
+            title="Error in Monthly Savings Interest Posting"
+        )
+        raise
+
+
+def accrue_monthly_loan_interest():
+    """
+    Accrue interest on all active loans for the month
+    This runs at month-end to ensure proper accounting accruals
+    """
+    from sacco_management.sacco.utils.loan_utils import process_loan_interest_accrual
+    
+    today = getdate(nowdate())
+    month_start = get_first_day(today)
+    month_end = get_last_day(today)
+    
+    try:
+        # Process accrual for all active loans
+        stats = process_loan_interest_accrual()
+        
+        frappe.log_error(
+            message=f"Monthly Loan Interest Accrual Complete: {stats['processed']} loans, Total: {stats['total_accrued']}",
+            title="Monthly Loan Interest Accrual"
+        )
+        
+        return stats
+    except Exception as e:
+        frappe.log_error(
+            message=str(e),
+            title="Error in Monthly Loan Interest Accrual"
+        )
+        raise
 
 
 def calculate_interest_on_savings():

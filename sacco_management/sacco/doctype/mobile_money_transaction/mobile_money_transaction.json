@@ -1,0 +1,107 @@
+{
+ "doctype": "DocType",
+ "module": "SACCO",
+ "custom": 0,
+ "name": "Mobile Money Transaction",
+ "document_type": "Document",
+ "is_submittable": 1,
+ "istable": 0,
+ "fields": [
+  {
+   "fieldname": "transaction_type",
+   "label": "Transaction Type",
+   "fieldtype": "Select",
+   "options": "STK_PUSH_REQUEST\nSTK_PUSH_CALLBACK\nB2C_REQUEST\nB2C_CALLBACK\nC2B_PAYMENT",
+   "in_list_view": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "phone_number",
+   "label": "Phone Number",
+   "fieldtype": "Data",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "amount",
+   "label": "Amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "mpesa_receipt",
+   "label": "M-Pesa Receipt Number",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "checkout_request_id",
+   "label": "Checkout Request ID",
+   "fieldtype": "Data",
+   "hidden": 1
+  },
+  {
+   "fieldname": "member",
+   "label": "Member",
+   "fieldtype": "Link",
+   "options": "SACCO Member",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "transaction_date",
+   "label": "Transaction Date",
+   "fieldtype": "Datetime",
+   "default": "Now"
+  },
+  {
+   "fieldname": "status",
+   "label": "Status",
+   "fieldtype": "Select",
+   "options": "Pending\nCompleted\nFailed\nCancelled",
+   "in_list_view": 1,
+   "reqd": 1,
+   "default": "Pending"
+  },
+  {
+   "fieldname": "response_data",
+   "label": "Response Data",
+   "fieldtype": "Code",
+   "read_only": 1
+  },
+  {
+   "fieldname": "failure_reason",
+   "label": "Failure Reason",
+   "fieldtype": "Text"
+  },
+  {
+   "fieldname": "account_reference",
+   "label": "Account Reference",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "transaction_description",
+   "label": "Transaction Description",
+   "fieldtype": "Data"
+  }
+ ],
+ "links": [],
+ "permissions": [
+  {
+   "role": "SACCO Admin",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1
+  },
+  {
+   "role": "SACCO Teller",
+   "read": 1,
+   "write": 1,
+   "create": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "search_fields": "member,phone_number,mpesa_receipt",
+ "title_field": "mpesa_receipt"
+}

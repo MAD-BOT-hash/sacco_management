@@ -1,0 +1,298 @@
+{
+ "actions": [],
+ "autoname": "field:product_name",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "product_name",
+  "product_code",
+  "description",
+  "column_break_1",
+  "is_active",
+  "is_mandatory",
+  "section_break_terms",
+  "min_balance",
+  "max_balance",
+  "min_deposit_amount",
+  "column_break_2",
+  "withdrawal_limits",
+  "max_withdrawals_per_month",
+  "notice_period_days",
+  "section_break_interest",
+  "interest_applicable",
+  "interest_rate",
+  "interest_calculation_method",
+  "column_break_3",
+  "interest_compounding_frequency",
+  "interest_posting_frequency",
+  "min_balance_for_interest",
+  "section_break_gl",
+  "default_gl_account",
+  "interest_gl_account",
+  "column_break_4",
+  "penalty_gl_account",
+  "section_break_rules",
+  "allow_overdraft",
+  "overdraft_limit",
+  "overdraft_interest_rate",
+  "column_break_5",
+  "penalty_for_below_min_balance",
+  "penalty_amount",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "product_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Product Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "product_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Product Code",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Active"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_mandatory",
+   "fieldtype": "Check",
+   "label": "Is Mandatory (All members must have)"
+  },
+  {
+   "fieldname": "section_break_terms",
+   "fieldtype": "Section Break",
+   "label": "Terms & Limits"
+  },
+  {
+   "default": "0",
+   "fieldname": "min_balance",
+   "fieldtype": "Currency",
+   "label": "Minimum Balance"
+  },
+  {
+   "default": "0",
+   "fieldname": "max_balance",
+   "fieldtype": "Currency",
+   "label": "Maximum Balance"
+  },
+  {
+   "default": "0",
+   "fieldname": "min_deposit_amount",
+   "fieldtype": "Currency",
+   "label": "Minimum Deposit Amount"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "withdrawal_limits",
+   "fieldtype": "Check",
+   "label": "Has Withdrawal Limits"
+  },
+  {
+   "default": "0",
+   "fieldname": "max_withdrawals_per_month",
+   "fieldtype": "Int",
+   "label": "Max Withdrawals Per Month"
+  },
+  {
+   "default": "0",
+   "fieldname": "notice_period_days",
+   "fieldtype": "Int",
+   "label": "Notice Period for Withdrawal (Days)"
+  },
+  {
+   "fieldname": "section_break_interest",
+   "fieldtype": "Section Break",
+   "label": "Interest Configuration"
+  },
+  {
+   "default": "0",
+   "fieldname": "interest_applicable",
+   "fieldtype": "Check",
+   "label": "Interest Applicable"
+  },
+  {
+   "default": "0",
+   "fieldname": "interest_rate",
+   "fieldtype": "Percent",
+   "label": "Annual Interest Rate (%)"
+  },
+  {
+   "default": "Daily Balance",
+   "fieldname": "interest_calculation_method",
+   "fieldtype": "Select",
+   "label": "Interest Calculation Method",
+   "options": "Daily Balance\nMonthly Balance\nAverage Balance\nMinimum Balance"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Monthly",
+   "fieldname": "interest_compounding_frequency",
+   "fieldtype": "Select",
+   "label": "Compounding Frequency",
+   "options": "Daily\nMonthly\nQuarterly\nAnnually"
+  },
+  {
+   "default": "Monthly",
+   "fieldname": "interest_posting_frequency",
+   "fieldtype": "Select",
+   "label": "Posting Frequency",
+   "options": "Daily\nWeekly\nMonthly\nQuarterly\nAnnually"
+  },
+  {
+   "default": "0",
+   "fieldname": "min_balance_for_interest",
+   "fieldtype": "Currency",
+   "label": "Minimum Balance for Interest Eligibility"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_gl",
+   "fieldtype": "Section Break",
+   "label": "Accounting"
+  },
+  {
+   "fieldname": "default_gl_account",
+   "fieldtype": "Link",
+   "label": "Default GL Account (Liability)",
+   "options": "SACCO GL Account"
+  },
+  {
+   "fieldname": "interest_gl_account",
+   "fieldtype": "Link",
+   "label": "Interest GL Account (Expense)",
+   "options": "SACCO GL Account"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "penalty_gl_account",
+   "fieldtype": "Link",
+   "label": "Penalty GL Account (Income)",
+   "options": "SACCO GL Account"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_rules",
+   "fieldtype": "Section Break",
+   "label": "Penalties & Overdraft"
+  },
+  {
+   "default": "0",
+   "fieldname": "allow_overdraft",
+   "fieldtype": "Check",
+   "label": "Allow Overdraft"
+  },
+  {
+   "depends_on": "allow_overdraft",
+   "fieldname": "overdraft_limit",
+   "fieldtype": "Currency",
+   "label": "Overdraft Limit"
+  },
+  {
+   "depends_on": "allow_overdraft",
+   "fieldname": "overdraft_interest_rate",
+   "fieldtype": "Percent",
+   "label": "Overdraft Interest Rate (%)"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "penalty_for_below_min_balance",
+   "fieldtype": "Check",
+   "label": "Penalty for Below Minimum Balance"
+  },
+  {
+   "depends_on": "penalty_for_below_min_balance",
+   "fieldname": "penalty_amount",
+   "fieldtype": "Currency",
+   "label": "Penalty Amount"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text Editor",
+   "label": "Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "SACCO",
+ "name": "Savings Product",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Auditor"
+  }
+ ],
+ "search_fields": "product_name, product_code, description",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

@@ -1,0 +1,217 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "dividend_period",
+  "member",
+  "member_name",
+  "column_break_1",
+  "transaction_date",
+  "transaction_type",
+  "status",
+  "section_break_amounts",
+  "gross_dividend",
+  "withholding_tax",
+  "column_break_2",
+  "net_dividend",
+  "dividend_paid",
+  "outstanding_dividend",
+  "section_break_reference",
+  "dividend_calculation",
+  "dividend_declaration",
+  "column_break_3",
+  "payment_mode",
+  "bank_account",
+  "section_break_remarks",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "default": "DL-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "reqd": 1,
+   "options": "DL-.YYYY.-.#####"
+  },
+  {
+   "fieldname": "dividend_period",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Dividend Period",
+   "options": "Dividend Period",
+   "reqd": 1
+  },
+  {
+   "fieldname": "member",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Member",
+   "options": "SACCO Member",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "member.member_name",
+   "fieldname": "member_name",
+   "fieldtype": "Data",
+   "label": "Member Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "transaction_date",
+   "fieldtype": "Date",
+   "label": "Transaction Date",
+   "reqd": 1
+  },
+  {
+   "default": "Entry",
+   "fieldname": "transaction_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Transaction Type",
+   "options": "\nEntry\nPayment\nAdjustment\nCancellation",
+   "reqd": 1
+  },
+  {
+   "default": "Submitted",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nSubmitted\nCancelled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_amounts",
+   "fieldtype": "Section Break",
+   "label": "Dividend Amounts"
+  },
+  {
+   "fieldname": "gross_dividend",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Gross Dividend",
+   "reqd": 1
+  },
+  {
+   "fieldname": "withholding_tax",
+   "fieldtype": "Currency",
+   "label": "Withholding Tax",
+   "default": "0"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "net_dividend",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Net Dividend",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "dividend_paid",
+   "fieldtype": "Currency",
+   "label": "Dividend Paid"
+  },
+  {
+   "fieldname": "outstanding_dividend",
+   "fieldtype": "Currency",
+   "label": "Outstanding Dividend",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_reference",
+   "fieldtype": "Section Break",
+   "label": "Reference"
+  },
+  {
+   "fieldname": "dividend_calculation",
+   "fieldtype": "Link",
+   "label": "Dividend Calculation",
+   "options": "Dividend Calculation"
+  },
+  {
+   "fieldname": "dividend_declaration",
+   "fieldtype": "Link",
+   "label": "Dividend Declaration",
+   "options": "Dividend Declaration"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "payment_mode",
+   "fieldtype": "Link",
+   "label": "Payment Mode",
+   "options": "Payment Mode"
+  },
+  {
+   "fieldname": "bank_account",
+   "fieldtype": "Link",
+   "label": "Bank Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "section_break_remarks",
+   "fieldtype": "Section Break",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Sacco",
+ "name": "Dividend Ledger",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "SACCO Admin",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Accountant",
+   "select": 1
+  },
+  {
+   "read": 1,
+   "role": "SACCO Auditor",
+   "select": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

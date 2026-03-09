@@ -1,0 +1,306 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "loan_application",
+  "member",
+  "member_name",
+  "column_break_1",
+  "write_off_date",
+  "status",
+  "amended_from",
+  "section_break_amounts",
+  "total_outstanding_principal",
+  "total_interest_due",
+  "total_penalty_due",
+  "column_break_2",
+  "total_write_off_amount",
+  "recovery_amount",
+  "net_loss_amount",
+  "section_break_reasons",
+  "write_off_reason",
+  "classification",
+  "column_break_3",
+  "days_overdue",
+  "legal_action_taken",
+  "section_break_approval",
+  "recommended_by",
+  "recommended_date",
+  "approved_by",
+  "approved_date",
+  "column_break_4",
+  "board_resolution_number",
+  "board_resolution_date",
+  "section_break_accounting",
+  "provision_made",
+  "provision_percentage",
+  "column_break_5",
+  "gl_entry_posted",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "default": "LWO-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "reqd": 1,
+   "options": "LWO-.YYYY.-.#####"
+  },
+  {
+   "fieldname": "loan_application",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Loan Application",
+   "options": "Loan Application",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "loan_application.member",
+   "fieldname": "member",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "label": "Member",
+   "options": "SACCO Member",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "loan_application.member_name",
+   "fieldname": "member_name",
+   "fieldtype": "Data",
+   "label": "Member Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "write_off_date",
+   "fieldtype": "Date",
+   "label": "Write Off Date",
+   "reqd": 1
+  },
+  {
+   "default": "Pending",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Pending\nApproved\nRejected\nPosted",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Loan Write Off",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_amounts",
+   "fieldtype": "Section Break",
+   "label": "Amounts"
+  },
+  {
+   "fieldname": "total_outstanding_principal",
+   "fieldtype": "Currency",
+   "label": "Total Outstanding Principal",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_interest_due",
+   "fieldtype": "Currency",
+   "label": "Total Interest Due",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_penalty_due",
+   "fieldtype": "Currency",
+   "label": "Total Penalty Due",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_write_off_amount",
+   "fieldtype": "Currency",
+   "label": "Total Write Off Amount",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "recovery_amount",
+   "fieldtype": "Currency",
+   "label": "Recovery Amount (if any)"
+  },
+  {
+   "fieldname": "net_loss_amount",
+   "fieldtype": "Currency",
+   "label": "Net Loss Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_reasons",
+   "fieldtype": "Section Break",
+   "label": "Reasons for Write Off"
+  },
+  {
+   "fieldname": "write_off_reason",
+   "fieldtype": "Small Text",
+   "label": "Write Off Reason",
+   "reqd": 1
+  },
+  {
+   "fieldname": "classification",
+   "fieldtype": "Select",
+   "label": "Loan Classification",
+   "options": "Substandard\nDoubtful\nLoss",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "days_overdue",
+   "fieldtype": "Int",
+   "label": "Days Overdue",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "legal_action_taken",
+   "fieldtype": "Check",
+   "label": "Legal Action Taken"
+  },
+  {
+   "fieldname": "section_break_approval",
+   "fieldtype": "Section Break",
+   "label": "Approval"
+  },
+  {
+   "fieldname": "recommended_by",
+   "fieldtype": "Link",
+   "label": "Recommended By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "recommended_date",
+   "fieldtype": "Date",
+   "label": "Recommended Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "Approved By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approved_date",
+   "fieldtype": "Date",
+   "label": "Approval Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "board_resolution_number",
+   "fieldtype": "Data",
+   "label": "Board Resolution Number"
+  },
+  {
+   "fieldname": "board_resolution_date",
+   "fieldtype": "Date",
+   "label": "Board Resolution Date"
+  },
+  {
+   "fieldname": "section_break_accounting",
+   "fieldtype": "Section Break",
+   "label": "Accounting Details"
+  },
+  {
+   "default": "0",
+   "fieldname": "provision_made",
+   "fieldtype": "Currency",
+   "label": "Provision Already Made"
+  },
+  {
+   "default": "0",
+   "fieldname": "provision_percentage",
+   "fieldtype": "Percent",
+   "label": "Provision Percentage"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "gl_entry_posted",
+   "fieldtype": "Check",
+   "label": "GL Entry Posted",
+   "read_only": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Sacco",
+ "name": "Loan Write Off",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "SACCO Admin",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Loan Officer",
+   "select": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Accountant",
+   "select": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

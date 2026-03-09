@@ -1,0 +1,242 @@
+{
+ "actions": [],
+ "autoname": "field:rule_name",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "rule_name",
+  "product",
+  "description",
+  "column_break_1",
+  "is_active",
+  "priority",
+  "section_break_conditions",
+  "min_balance_threshold",
+  "max_balance_threshold",
+  "column_break_2",
+  "min_account_age_days",
+  "member_type_eligible",
+  "section_break_interest",
+  "special_interest_rate",
+  "interest_calculation_method",
+  "column_break_3",
+  "compounding_frequency",
+  "posting_frequency",
+  "bonus_interest_applicable",
+  "bonus_interest_rate",
+  "bonus_condition",
+  "section_break_validity",
+  "valid_from",
+  "valid_to",
+  "column_break_4",
+  "applicable_days",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "rule_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Rule Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "product",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Savings Product",
+   "options": "Savings Product",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Active"
+  },
+  {
+   "default": "10",
+   "fieldname": "priority",
+   "fieldtype": "Int",
+   "label": "Priority (Lower = Higher Priority)"
+  },
+  {
+   "fieldname": "section_break_conditions",
+   "fieldtype": "Section Break",
+   "label": "Eligibility Conditions"
+  },
+  {
+   "default": "0",
+   "fieldname": "min_balance_threshold",
+   "fieldtype": "Currency",
+   "label": "Minimum Balance Threshold"
+  },
+  {
+   "default": "0",
+   "fieldname": "max_balance_threshold",
+   "fieldtype": "Currency",
+   "label": "Maximum Balance Threshold (0 = No limit)"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "min_account_age_days",
+   "fieldtype": "Int",
+   "label": "Minimum Account Age (Days)"
+  },
+  {
+   "fieldname": "member_type_eligible",
+   "fieldtype": "Select",
+   "label": "Member Type Eligibility",
+   "options": "\nAll\nActive Only\nSenior Members\nYouth Members\nStaff Members"
+  },
+  {
+   "fieldname": "section_break_interest",
+   "fieldtype": "Section Break",
+   "label": "Special Interest Terms"
+  },
+  {
+   "fieldname": "special_interest_rate",
+   "fieldtype": "Percent",
+   "label": "Special Interest Rate (%) - Overrides product rate"
+  },
+  {
+   "fetch_from": "product.interest_calculation_method",
+   "fieldname": "interest_calculation_method",
+   "fieldtype": "Select",
+   "label": "Interest Calculation Method",
+   "options": "Daily Balance\nMonthly Balance\nAverage Balance\nMinimum Balance"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "product.interest_compounding_frequency",
+   "fieldname": "compounding_frequency",
+   "fieldtype": "Select",
+   "label": "Compounding Frequency",
+   "options": "Daily\nMonthly\nQuarterly\nAnnually"
+  },
+  {
+   "fetch_from": "product.interest_posting_frequency",
+   "fieldname": "posting_frequency",
+   "fieldtype": "Select",
+   "label": "Posting Frequency",
+   "options": "Daily\nWeekly\nMonthly\nQuarterly\nAnnually"
+  },
+  {
+   "default": "0",
+   "fieldname": "bonus_interest_applicable",
+   "fieldtype": "Check",
+   "label": "Bonus Interest Applicable"
+  },
+  {
+   "depends_on": "bonus_interest_applicable",
+   "fieldname": "bonus_interest_rate",
+   "fieldtype": "Percent",
+   "label": "Bonus Interest Rate (%)"
+  },
+  {
+   "depends_on": "bonus_interest_applicable",
+   "fieldname": "bonus_condition",
+   "fieldtype": "Small Text",
+   "label": "Bonus Condition (e.g., No withdrawal for 6 months)"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_validity",
+   "fieldtype": "Section Break",
+   "label": "Validity Period"
+  },
+  {
+   "fieldname": "valid_from",
+   "fieldtype": "Date",
+   "label": "Valid From"
+  },
+  {
+   "fieldname": "valid_to",
+   "fieldtype": "Date",
+   "label": "Valid To"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "applicable_days",
+   "fieldtype": "Data",
+   "label": "Applicable Days (Comma separated, e.g., Monday,Wednesday)",
+   "description": "Leave blank for all days"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text Editor",
+   "label": "Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "SACCO",
+ "name": "Savings Interest Rule",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Auditor"
+  }
+ ],
+ "search_fields": "rule_name, product, description",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

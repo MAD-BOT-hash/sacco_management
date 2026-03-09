@@ -1,0 +1,227 @@
+{
+ "actions": [],
+ "autoname": "field:period_name",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "period_name",
+  "fiscal_year",
+  "column_break_1",
+  "start_date",
+  "end_date",
+  "status",
+  "section_break_financials",
+  "opening_profit",
+  "available_surplus",
+  "column_break_2",
+  "statutory_reserve",
+  "general_reserve",
+  "dividend_pool",
+  "section_break_rates",
+  "recommended_dividend_rate",
+  "approved_dividend_rate",
+  "column_break_3",
+  "total_shares_for_dividend",
+  "total_dividend_amount",
+  "section_break_approval",
+  "board_resolution_number",
+  "board_resolution_date",
+  "column_break_4",
+  "agm_approval_date",
+  "agm_resolution_number",
+  "section_break_remarks",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "period_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Period Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "fiscal_year",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Fiscal Year",
+   "options": "Fiscal Year",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Period Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Period End Date",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nBoard Approved\nAGM Approved\nCompleted\nCancelled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_financials",
+   "fieldtype": "Section Break",
+   "label": "Financial Details"
+  },
+  {
+   "fieldname": "opening_profit",
+   "fieldtype": "Currency",
+   "label": "Opening Profit/Loss",
+   "reqd": 1
+  },
+  {
+   "fieldname": "available_surplus",
+   "fieldtype": "Currency",
+   "label": "Available Surplus for Dividend",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "statutory_reserve",
+   "fieldtype": "Currency",
+   "label": "Statutory Reserve Allocation"
+  },
+  {
+   "default": "0",
+   "fieldname": "general_reserve",
+   "fieldtype": "Currency",
+   "label": "General Reserve Allocation"
+  },
+  {
+   "fieldname": "dividend_pool",
+   "fieldtype": "Currency",
+   "label": "Dividend Pool Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_rates",
+   "fieldtype": "Section Break",
+   "label": "Dividend Rates & Summary"
+  },
+  {
+   "fieldname": "recommended_dividend_rate",
+   "fieldtype": "Percent",
+   "label": "Recommended Dividend Rate (%)"
+  },
+  {
+   "fieldname": "approved_dividend_rate",
+   "fieldtype": "Percent",
+   "label": "Approved Dividend Rate (%)",
+   "read_only_depends_on": "eval:doc.status === 'AGM Approved'"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_shares_for_dividend",
+   "fieldtype": "Float",
+   "label": "Total Shares Eligible for Dividend",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_dividend_amount",
+   "fieldtype": "Currency",
+   "label": "Total Dividend Amount Required",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_approval",
+   "fieldtype": "Section Break",
+   "label": "Approvals"
+  },
+  {
+   "fieldname": "board_resolution_number",
+   "fieldtype": "Data",
+   "label": "Board Resolution Number"
+  },
+  {
+   "fieldname": "board_resolution_date",
+   "fieldtype": "Date",
+   "label": "Board Resolution Date"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "agm_approval_date",
+   "fieldtype": "Date",
+   "label": "AGM Approval Date"
+  },
+  {
+   "fieldname": "agm_resolution_number",
+   "fieldtype": "Data",
+   "label": "AGM Resolution Number"
+  },
+  {
+   "fieldname": "section_break_remarks",
+   "fieldtype": "Section Break",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "label": "Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Sacco",
+ "name": "Dividend Period",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "SACCO Admin",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Accountant",
+   "select": 1
+  },
+  {
+   "read": 1,
+   "role": "SACCO Auditor",
+   "select": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

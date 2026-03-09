@@ -63,8 +63,10 @@ doctype_js = {
 # ------------
 
 # before_install = "sacco_management.install.before_install"
-# after_install = "sacco_management.install.after_install"
-after_install = "sacco_management.sacco.setup.install.after_install"
+# after_install is commented out because DocTypes need to be migrated first
+# Run: bench --site your-site migrate
+# Then: bench --site your-site execute sacco_management.sacco.setup.install.setup_sacco_data
+# after_install = "sacco_management.sacco.setup.install.after_install"
 
 # Uninstallation
 # ------------
@@ -138,6 +140,74 @@ doc_events = {
         "on_submit": "sacco_management.sacco.doctype.member_attendance_fine.member_attendance_fine.on_submit",
         "on_cancel": "sacco_management.sacco.doctype.member_attendance_fine.member_attendance_fine.on_cancel",
     },
+    "Savings Deposit": {
+        "on_submit": "sacco_management.sacco.doctype.savings_deposit.savings_deposit.on_submit",
+        "on_cancel": "sacco_management.sacco.doctype.savings_deposit.savings_deposit.on_cancel",
+    },
+    "Savings Withdrawal": {
+        "on_submit": "sacco_management.sacco.doctype.savings_withdrawal.savings_withdrawal.on_submit",
+        "on_cancel": "sacco_management.sacco.doctype.savings_withdrawal.savings_withdrawal.on_cancel",
+    },
+    "Savings Interest Posting": {
+        "on_submit": "sacco_management.sacco.doctype.savings_interest_posting.savings_interest_posting.on_submit",
+        "on_cancel": "sacco_management.sacco.doctype.savings_interest_posting.savings_interest_posting.on_cancel",
+    },
+    "Loan Agreement": {
+        "on_submit": "sacco_management.sacco.doctype.loan_agreement.loan_agreement.on_submit",
+        "on_cancel": "sacco_management.sacco.doctype.loan_agreement.loan_agreement.on_cancel",
+    },
+    "Loan Disbursement": {
+        "on_submit": "sacco_management.sacco.doctype.loan_disbursement.loan_disbursement.on_submit",
+        "on_cancel": "sacco_management.sacco.doctype.loan_disbursement.loan_disbursement.on_cancel",
+    },
+    "Loan Restructure": {
+        "on_submit": "sacco_management.sacco.doctype.loan_restructure.loan_restructure.on_submit",
+        "on_cancel": "sacco_management.sacco.doctype.loan_restructure.loan_restructure.on_cancel",
+    },
+    "Loan Write Off": {
+        "on_submit": "sacco_management.sacco.doctype.loan_write_off.loan_write_off.on_submit",
+        "on_cancel": "sacco_management.sacco.doctype.loan_write_off.loan_write_off.on_cancel",
+    },
+    "Loan Settlement": {
+        "on_submit": "sacco_management.sacco.doctype.loan_settlement.loan_settlement.on_submit",
+        "on_cancel": "sacco_management.sacco.doctype.loan_settlement.loan_settlement.on_cancel",
+    },
+    "Share Purchase": {
+        "on_submit": "sacco_management.sacco.doctype.share_purchase.share_purchase.on_submit",
+        "on_cancel": "sacco_management.sacco.doctype.share_purchase.share_purchase.on_cancel",
+    },
+    "Share Redemption": {
+        "on_submit": "sacco_management.sacco.doctype.share_redemption.share_redemption.on_submit",
+        "on_cancel": "sacco_management.sacco.doctype.share_redemption.share_redemption.on_cancel",
+    },
+    "Share Ledger": {
+        "on_submit": "sacco_management.sacco.doctype.share_ledger.share_ledger.on_submit",
+        "on_cancel": "sacco_management.sacco.doctype.share_ledger.share_ledger.on_cancel",
+    },
+    "Dividend Calculation": {
+        "on_submit": "sacco_management.sacco.doctype.dividend_calculation.dividend_calculation.on_submit",
+        "on_cancel": "sacco_management.sacco.doctype.dividend_calculation.dividend_calculation.on_cancel",
+    },
+    "Dividend Ledger": {
+        "on_submit": "sacco_management.sacco.doctype.dividend_ledger.dividend_ledger.on_submit",
+        "on_cancel": "sacco_management.sacco.doctype.dividend_ledger.dividend_ledger.on_cancel",
+    },
+    "Meeting Resolution": {
+        "on_submit": "sacco_management.sacco.doctype.meeting_resolution.meeting_resolution.on_submit",
+        "on_cancel": "sacco_management.sacco.doctype.meeting_resolution.meeting_resolution.on_cancel",
+    },
+    "Fine Payment": {
+        "on_submit": "sacco_management.sacco.doctype.fine_payment.fine_payment.on_submit",
+        "on_cancel": "sacco_management.sacco.doctype.fine_payment.fine_payment.on_cancel",
+    },
+    "Fine Waiver": {
+        "on_submit": "sacco_management.sacco.doctype.fine_waiver.fine_waiver.on_submit",
+        "on_cancel": "sacco_management.sacco.doctype.fine_waiver.fine_waiver.on_cancel",
+    },
+    "Inter Branch Transfer": {
+        "on_submit": "sacco_management.sacco.doctype.inter_branch_transfer.inter_branch_transfer.on_submit",
+        "on_cancel": "sacco_management.sacco.doctype.inter_branch_transfer.inter_branch_transfer.on_cancel",
+    },
 }
 
 # Scheduled Tasks
@@ -147,20 +217,26 @@ scheduler_events = {
     "daily": [
         "sacco_management.sacco.tasks.daily.calculate_loan_penalties",
         "sacco_management.sacco.tasks.daily.send_payment_reminders",
+        "sacco_management.sacco.tasks.daily.accrue_savings_interest",  # Daily savings interest accrual
+        "sacco_management.sacco.tasks.daily.accrue_loan_interest",  # Daily loan interest accrual
+        "sacco_management.sacco.utils.optimized_utils.scheduled_cache_warming",  # Cache warming
     ],
     "weekly": [
         "sacco_management.sacco.tasks.weekly.generate_weekly_reports",
+        "sacco_management.sacco.utils.optimized_utils.scheduled_cache_cleanup",  # Cache cleanup
     ],
     "monthly": [
         "sacco_management.sacco.tasks.monthly.calculate_interest_on_savings",
         "sacco_management.sacco.tasks.monthly.generate_monthly_statements",
+        "sacco_management.sacco.tasks.monthly.process_savings_interest_posting",  # Monthly interest posting
+        "sacco_management.sacco.tasks.monthly.accrue_monthly_loan_interest",  # Monthly loan interest accrual
     ],
 }
 
 # Testing
 # -------
 
-# before_tests = "sacco_management.install.before_tests"
+before_tests = "sacco_management.tests.test_config.setup_test_environment"
 
 # Overriding Methods
 # ------------------------------
@@ -253,3 +329,25 @@ website_route_rules = [
 
 # Override standard accounts
 # accounting_dimension_doctypes = ["SACCO Member", "Branch", "Member Group"]
+
+# Performance Optimization
+# ------------------------
+
+# Enable GZip compression for API responses
+compress_response = True
+
+# Rate limiting for API calls (calls per minute)
+rate_limit = {
+    "default": 100,
+    "/api/method/sacco_management.sacco.api.*": 60,  # SACCO APIs
+}
+
+# Scheduler configuration
+scheduler_events = {
+    "cron": {
+        # Run cache warming every 6 hours
+        "0 */6 * * *": [
+            "sacco_management.sacco.utils.optimized_utils.scheduled_cache_warming"
+        ],
+    }
+}

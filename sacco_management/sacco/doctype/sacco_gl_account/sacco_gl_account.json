@@ -3,6 +3,7 @@
  "allow_rename": 1,
  "autoname": "format:{account_number}-{account_name}",
  "creation": "2024-01-01 00:00:00.000000",
+ "custom": 0,
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [

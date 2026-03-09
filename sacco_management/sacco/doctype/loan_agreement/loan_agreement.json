@@ -1,0 +1,306 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "loan_application",
+  "member",
+  "member_name",
+  "column_break_1",
+  "agreement_date",
+  "status",
+  "amended_from",
+  "section_break_loan_details",
+  "loan_amount",
+  "interest_rate",
+  "repayment_period",
+  "column_break_2",
+  "repayment_method",
+  "emi_amount",
+  "first_payment_date",
+  "section_break_terms",
+  "terms_and_conditions",
+  "special_conditions",
+  "column_break_3",
+  "prepayment_allowed",
+  "prepayment_charges",
+  "section_break_signatures",
+  "borrower_signature",
+  "borrower_signature_date",
+  "column_break_4",
+  "lender_signature",
+  "lender_signature_date",
+  "section_break_witness",
+  "witness_1_name",
+  "witness_1_signature",
+  "column_break_5",
+  "witness_2_name",
+  "witness_2_signature",
+  "section_break_attachments",
+  "agreement_document",
+  "additional_documents"
+ ],
+ "fields": [
+  {
+   "default": "LAG-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "reqd": 1,
+   "options": "LAG-.YYYY.-.#####"
+  },
+  {
+   "fieldname": "loan_application",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Loan Application",
+   "options": "Loan Application",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "loan_application.member",
+   "fieldname": "member",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "label": "Member",
+   "options": "SACCO Member",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "loan_application.member_name",
+   "fieldname": "member_name",
+   "fieldtype": "Data",
+   "label": "Member Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "agreement_date",
+   "fieldtype": "Date",
+   "label": "Agreement Date",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nActive\nCompleted\nTerminated",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Loan Agreement",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_loan_details",
+   "fieldtype": "Section Break",
+   "label": "Loan Details"
+  },
+  {
+   "fetch_from": "loan_application.amount_requested",
+   "fieldname": "loan_amount",
+   "fieldtype": "Currency",
+   "label": "Loan Amount",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "loan_application.interest_rate",
+   "fieldname": "interest_rate",
+   "fieldtype": "Percent",
+   "label": "Interest Rate",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "loan_application.repayment_period",
+   "fieldname": "repayment_period",
+   "fieldtype": "Int",
+   "label": "Repayment Period (Months)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "loan_application.repayment_method",
+   "fieldname": "repayment_method",
+   "fieldtype": "Select",
+   "label": "Repayment Method",
+   "options": "Monthly Reducing Balance\nFlat Rate\nBullet Payment",
+   "read_only": 1
+  },
+  {
+   "fieldname": "emi_amount",
+   "fieldtype": "Currency",
+   "label": "EMI Amount",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "loan_application.expected_first_payment_date",
+   "fieldname": "first_payment_date",
+   "fieldtype": "Date",
+   "label": "First Payment Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_terms",
+   "fieldtype": "Section Break",
+   "label": "Terms & Conditions"
+  },
+  {
+   "fieldname": "terms_and_conditions",
+   "fieldtype": "Text Editor",
+   "label": "Terms and Conditions"
+  },
+  {
+   "fieldname": "special_conditions",
+   "fieldtype": "Small Text",
+   "label": "Special Conditions"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.docstatus===0",
+   "fieldname": "prepayment_allowed",
+   "fieldtype": "Check",
+   "label": "Prepayment Allowed"
+  },
+  {
+   "depends_on": "eval:doc.prepayment_allowed",
+   "fieldname": "prepayment_charges",
+   "fieldtype": "Percent",
+   "label": "Prepayment Charges (%)"
+  },
+  {
+   "fieldname": "section_break_signatures",
+   "fieldtype": "Section Break",
+   "label": "Signatures"
+  },
+  {
+   "fieldname": "borrower_signature",
+   "fieldtype": "Attach Image",
+   "label": "Borrower Signature"
+  },
+  {
+   "fieldname": "borrower_signature_date",
+   "fieldtype": "Date",
+   "label": "Borrower Signature Date"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lender_signature",
+   "fieldtype": "Attach Image",
+   "label": "Lender Signature"
+  },
+  {
+   "fieldname": "lender_signature_date",
+   "fieldtype": "Date",
+   "label": "Lender Signature Date"
+  },
+  {
+   "fieldname": "section_break_witness",
+   "fieldtype": "Section Break",
+   "label": "Witness"
+  },
+  {
+   "fieldname": "witness_1_name",
+   "fieldtype": "Data",
+   "label": "Witness 1 Name"
+  },
+  {
+   "fieldname": "witness_1_signature",
+   "fieldtype": "Attach Image",
+   "label": "Witness 1 Signature"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "witness_2_name",
+   "fieldtype": "Data",
+   "label": "Witness 2 Name"
+  },
+  {
+   "fieldname": "witness_2_signature",
+   "fieldtype": "Attach Image",
+   "label": "Witness 2 Signature"
+  },
+  {
+   "fieldname": "section_break_attachments",
+   "fieldtype": "Section Break",
+   "label": "Attachments"
+  },
+  {
+   "fieldname": "agreement_document",
+   "fieldtype": "Attach",
+   "label": "Agreement Document (PDF)"
+  },
+  {
+   "fieldname": "additional_documents",
+   "fieldtype": "Table",
+   "label": "Additional Documents",
+   "options": "File Attachment"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Sacco",
+ "name": "Loan Agreement",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "SACCO Admin",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Loan Officer",
+   "select": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Accountant",
+   "select": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

@@ -1,0 +1,80 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "fine_reference",
+  "fine_type",
+  "fine_date",
+  "column_break_1",
+  "original_amount",
+  "amount_paid",
+  "outstanding_amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "fine_reference",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Fine Reference",
+   "options": "Member Fine",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "fine_reference.fine_type",
+   "fieldname": "fine_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Fine Type",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "fine_reference.posting_date",
+   "fieldname": "fine_date",
+   "fieldtype": "Date",
+   "label": "Fine Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "fine_reference.amount",
+   "fieldname": "original_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Original Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amount_paid",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount Paid",
+   "reqd": 1
+  },
+  {
+   "fieldname": "outstanding_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Outstanding Amount",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Sacco",
+ "name": "Fine Payment Allocation",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

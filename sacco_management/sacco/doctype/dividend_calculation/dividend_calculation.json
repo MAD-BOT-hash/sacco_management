@@ -1,0 +1,250 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "dividend_period",
+  "member",
+  "member_name",
+  "column_break_1",
+  "calculation_date",
+  "status",
+  "section_break_shares",
+  "eligible_shares",
+  "share_type",
+  "column_break_2",
+  "dividend_rate",
+  "days_held",
+  "section_break_calculation",
+  "gross_dividend",
+  "withholding_tax_rate",
+  "column_break_3",
+  "withholding_tax_amount",
+  "net_dividend_payable",
+  "section_break_payment",
+  "payment_mode",
+  "bank_account",
+  "column_break_4",
+  "paid",
+  "paid_date",
+  "section_break_reference",
+  "dividend_declaration",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "default": "DC-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "reqd": 1,
+   "options": "DC-.YYYY.-.#####"
+  },
+  {
+   "fieldname": "dividend_period",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Dividend Period",
+   "options": "Dividend Period",
+   "reqd": 1
+  },
+  {
+   "fieldname": "member",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Member",
+   "options": "SACCO Member",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "member.member_name",
+   "fieldname": "member_name",
+   "fieldtype": "Data",
+   "label": "Member Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "calculation_date",
+   "fieldtype": "Date",
+   "label": "Calculation Date",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nCalculated\nApproved\nPaid\nCancelled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_shares",
+   "fieldtype": "Section Break",
+   "label": "Share Details"
+  },
+  {
+   "fieldname": "eligible_shares",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Eligible Shares",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "share_type",
+   "fieldtype": "Link",
+   "label": "Share Type",
+   "options": "Share Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "dividend_rate",
+   "fieldtype": "Percent",
+   "label": "Dividend Rate (%)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "days_held",
+   "fieldtype": "Int",
+   "label": "Days Held During Period",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_calculation",
+   "fieldtype": "Section Break",
+   "label": "Dividend Calculation"
+  },
+  {
+   "fieldname": "gross_dividend",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Gross Dividend",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "dividend_period.withholding_tax_rate",
+   "fieldname": "withholding_tax_rate",
+   "fieldtype": "Percent",
+   "label": "Withholding Tax Rate (%)"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "withholding_tax_amount",
+   "fieldtype": "Currency",
+   "label": "Withholding Tax Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "net_dividend_payable",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Net Dividend Payable",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_payment",
+   "fieldtype": "Section Break",
+   "label": "Payment Details"
+  },
+  {
+   "fieldname": "payment_mode",
+   "fieldtype": "Link",
+   "label": "Payment Mode",
+   "options": "Payment Mode"
+  },
+  {
+   "fieldname": "bank_account",
+   "fieldtype": "Link",
+   "label": "Bank Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "paid",
+   "fieldtype": "Check",
+   "label": "Paid",
+   "read_only": 1
+  },
+  {
+   "fieldname": "paid_date",
+   "fieldtype": "Date",
+   "label": "Paid Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_reference",
+   "fieldtype": "Section Break",
+   "label": "Reference"
+  },
+  {
+   "fieldname": "dividend_declaration",
+   "fieldtype": "Link",
+   "label": "Dividend Declaration",
+   "options": "Dividend Declaration",
+   "read_only": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Sacco",
+ "name": "Dividend Calculation",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "SACCO Admin",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Accountant",
+   "select": 1
+  },
+  {
+   "read": 1,
+   "role": "SACCO Auditor",
+   "select": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

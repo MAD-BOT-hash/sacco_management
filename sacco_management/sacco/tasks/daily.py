@@ -5,11 +5,61 @@ These tasks run daily via Frappe scheduler:
 - Calculate loan penalties for overdue payments
 - Send payment reminders to members
 - Update overdue status on loan schedules
+- Accrue daily savings interest
+- Accrue daily loan interest
 """
 
 import frappe
 from frappe import _
 from frappe.utils import nowdate, getdate, add_days, date_diff, flt
+
+
+def accrue_savings_interest():
+    """
+    Accrue daily interest on all savings accounts
+    This is for accounting purposes - calculates but doesn't post interest
+    """
+    from sacco_management.sacco.utils.savings_utils import accrue_daily_interest
+    
+    try:
+        stats = accrue_daily_interest()
+        
+        frappe.log_error(
+            message=f"Daily Interest Accrual Complete: {stats['accounts_updated']} accounts, Total: {stats['total_accrued']}",
+            title="Daily Savings Interest Accrual"
+        )
+        
+        return stats
+    except Exception as e:
+        frappe.log_error(
+            message=str(e),
+            title="Error in Daily Savings Interest Accrual"
+        )
+        raise
+
+
+def accrue_loan_interest():
+    """
+    Accrue daily interest on all active loans
+    This calculates daily interest accrual for accounting purposes
+    """
+    from sacco_management.sacco.utils.loan_utils import process_loan_interest_accrual
+    
+    try:
+        stats = process_loan_interest_accrual()
+        
+        frappe.log_error(
+            message=f"Daily Loan Interest Accrual Complete: {stats['processed']} loans, Total Accrued: {stats['total_accrued']}",
+            title="Daily Loan Interest Accrual"
+        )
+        
+        return stats
+    except Exception as e:
+        frappe.log_error(
+            message=str(e),
+            title="Error in Daily Loan Interest Accrual"
+        )
+        raise
 
 
 def calculate_loan_penalties():

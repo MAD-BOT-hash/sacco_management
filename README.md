@@ -24,13 +24,22 @@ A comprehensive SACCO (Savings and Credit Cooperative) Management System built o
 
 ```bash
 # Get the app
-bench get-app https://github.com/MAD-BOT-hash/sacco_management.git
+bench get-app https://github.com/MAD-BOT-hash/sacco_mangement.git
 
-# Install on your site
+# Install on your site (this only installs the app, doesn't create DocTypes yet)
 bench --site your-site-name install-app sacco_management
 
-# Run migrations
+# Run migrations to create DocTypes
 bench --site your-site-name migrate
+
+# Clear cache
+bench --site your-site-name clear-cache
+
+# Setup default data (GL accounts, roles, contribution types, etc.)
+bench --site your-site-name execute sacco_management.sacco.setup.install.setup_sacco_data
+
+# Restart bench
+bench restart
 ```
 
 ## DocTypes
