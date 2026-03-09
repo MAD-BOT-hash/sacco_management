@@ -1,8 +1,6 @@
 # Copyright (c) 2024, SACCO Developer and contributors
-# For license information, please see license.txt
+# For license information, see license.txt
 
-from frappe.model.document import Document
+from .share_purchase import SharePurchase
 
-
-class SharePurchase:
-    pass
+__all__ = ["SharePurchase"]

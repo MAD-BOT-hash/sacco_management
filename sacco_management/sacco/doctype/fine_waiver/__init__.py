@@ -1,8 +1,6 @@
 # Copyright (c) 2024, SACCO Developer and contributors
-# For license information, please see license.txt
+# For license information, see license.txt
 
-from frappe.model.document import Document
+from .fine_waiver import FineWaiver
 
-
-class FineWaiver:
-    pass
+__all__ = ["FineWaiver"]

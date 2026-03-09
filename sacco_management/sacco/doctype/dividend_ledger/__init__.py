@@ -1,8 +1,6 @@
 # Copyright (c) 2024, SACCO Developer and contributors
-# For license information, please see license.txt
+# For license information, see license.txt
 
-from frappe.model.document import Document
+from .dividend_ledger import DividendLedger
 
-
-class DividendLedger:
-    pass
+__all__ = ["DividendLedger"]

@@ -1,8 +1,6 @@
 # Copyright (c) 2024, SACCO Developer and contributors
-# For license information, please see license.txt
+# For license information, see license.txt
 
-from frappe.model.document import Document
+from .dividend_period import DividendPeriod
 
-
-class DividendPeriod:
-    pass
+__all__ = ["DividendPeriod"]
