@@ -1,0 +1,212 @@
+{
+    "actions": [],
+    "autoname": "SACCO-ATT-.YYYY.-.#####",
+    "creation": "2024-01-01 00:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "meeting",
+        "meeting_title",
+        "meeting_date",
+        "column_break_1",
+        "member",
+        "member_name",
+        "section_break_2",
+        "attendance_status",
+        "column_break_3",
+        "time_in",
+        "time_out",
+        "section_break_4",
+        "notes",
+        "section_break_5",
+        "fine_generated",
+        "fine_reference",
+        "amended_from"
+    ],
+    "fields": [
+        {
+            "fieldname": "meeting",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Meeting",
+            "options": "SACCO Meeting",
+            "reqd": 1
+        },
+        {
+            "fetch_from": "meeting.title",
+            "fieldname": "meeting_title",
+            "fieldtype": "Data",
+            "label": "Meeting Title",
+            "read_only": 1
+        },
+        {
+            "fetch_from": "meeting.scheduled_date",
+            "fieldname": "meeting_date",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "label": "Meeting Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "member",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Member",
+            "options": "SACCO Member",
+            "reqd": 1
+        },
+        {
+            "fetch_from": "member.member_name",
+            "fieldname": "member_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Member Name",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_2",
+            "fieldtype": "Section Break",
+            "label": "Attendance"
+        },
+        {
+            "default": "Absent",
+            "fieldname": "attendance_status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Attendance Status",
+            "options": "Present\nAbsent\nLate\nExcused",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "time_in",
+            "fieldtype": "Time",
+            "label": "Time In",
+            "depends_on": "eval:doc.attendance_status == 'Present' || doc.attendance_status == 'Late'"
+        },
+        {
+            "fieldname": "time_out",
+            "fieldtype": "Time",
+            "label": "Time Out",
+            "depends_on": "eval:doc.attendance_status == 'Present' || doc.attendance_status == 'Late'"
+        },
+        {
+            "fieldname": "section_break_4",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "notes",
+            "fieldtype": "Small Text",
+            "label": "Notes"
+        },
+        {
+            "fieldname": "section_break_5",
+            "fieldtype": "Section Break",
+            "label": "Fine Information",
+            "collapsible": 1
+        },
+        {
+            "default": "0",
+            "fieldname": "fine_generated",
+            "fieldtype": "Check",
+            "label": "Fine Generated",
+            "read_only": 1
+        },
+        {
+            "fieldname": "fine_reference",
+            "fieldtype": "Link",
+            "label": "Fine Reference",
+            "options": "Member Attendance Fine",
+            "read_only": 1
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "Meeting Register",
+            "print_hide": 1,
+            "read_only": 1
+        }
+    ],
+    "is_submittable": 1,
+    "links": [],
+    "modified": "2024-01-01 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "SACCO",
+    "name": "Meeting Register",
+    "naming_rule": "Expression",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "SACCO Admin",
+            "share": 1,
+            "submit": 1,
+            "write": 1,
+            "amend": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "SACCO Branch Manager",
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "SACCO Teller",
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "SACCO Auditor"
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}

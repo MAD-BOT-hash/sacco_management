@@ -1,0 +1,60 @@
+[
+    {
+        "doctype": "Number Card",
+        "name": "Total Members",
+        "label": "Total Members",
+        "document_type": "SACCO Member",
+        "function": "Count",
+        "is_public": 1,
+        "is_standard": 1,
+        "module": "SACCO",
+        "show_percentage_stats": 1,
+        "stats_time_interval": "Monthly",
+        "filters_json": "[[\"SACCO Member\",\"status\",\"=\",\"Active\"]]",
+        "color": "#3498db"
+    },
+    {
+        "doctype": "Number Card",
+        "name": "Active Loans",
+        "label": "Active Loans",
+        "document_type": "Loan Application",
+        "function": "Count",
+        "is_public": 1,
+        "is_standard": 1,
+        "module": "SACCO",
+        "show_percentage_stats": 1,
+        "stats_time_interval": "Monthly",
+        "filters_json": "[[\"Loan Application\",\"docstatus\",\"=\",\"1\"],[\"Loan Application\",\"status\",\"in\",[\"Disbursed\",\"Partially Paid\"]]]",
+        "color": "#e67e22"
+    },
+    {
+        "doctype": "Number Card",
+        "name": "Total Contributions",
+        "label": "Total Contributions",
+        "document_type": "Member Contribution",
+        "function": "Sum",
+        "aggregate_function_based_on": "amount",
+        "is_public": 1,
+        "is_standard": 1,
+        "module": "SACCO",
+        "show_percentage_stats": 1,
+        "stats_time_interval": "Monthly",
+        "filters_json": "[[\"Member Contribution\",\"docstatus\",\"=\",\"1\"]]",
+        "color": "#27ae60"
+    },
+    {
+        "doctype": "Number Card",
+        "name": "Share Capital",
+        "label": "Share Capital",
+        "document_type": "Share Allocation",
+        "function": "Sum",
+        "aggregate_function_based_on": "amount",
+        "is_public": 1,
+        "is_standard": 1,
+        "module": "SACCO",
+        "show_percentage_stats": 1,
+        "stats_time_interval": "Monthly",
+        "filters_json": "[[\"Share Allocation\",\"docstatus\",\"=\",\"1\"],[\"Share Allocation\",\"status\",\"=\",\"Allocated\"]]",
+        "color": "#9b59b6"
+    }
+]

@@ -1,0 +1,265 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:group_name",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "group_name",
+  "group_code",
+  "branch",
+  "column_break_1",
+  "is_active",
+  "formation_date",
+  "section_break_details",
+  "description",
+  "column_break_2",
+  "meeting_day",
+  "meeting_time",
+  "section_break_leadership",
+  "chairperson",
+  "chairperson_name",
+  "column_break_3",
+  "secretary",
+  "secretary_name",
+  "column_break_4",
+  "treasurer",
+  "treasurer_name",
+  "section_break_stats",
+  "total_members",
+  "total_contributions",
+  "column_break_5",
+  "total_loans",
+  "active_loans"
+ ],
+ "fields": [
+  {
+   "fieldname": "group_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Group Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "group_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Group Code",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Branch",
+   "options": "Branch",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "formation_date",
+   "fieldtype": "Date",
+   "label": "Formation Date"
+  },
+  {
+   "fieldname": "section_break_details",
+   "fieldtype": "Section Break",
+   "label": "Group Details"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "meeting_day",
+   "fieldtype": "Select",
+   "label": "Meeting Day",
+   "options": "\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\nSunday"
+  },
+  {
+   "fieldname": "meeting_time",
+   "fieldtype": "Time",
+   "label": "Meeting Time"
+  },
+  {
+   "fieldname": "section_break_leadership",
+   "fieldtype": "Section Break",
+   "label": "Group Leadership"
+  },
+  {
+   "fieldname": "chairperson",
+   "fieldtype": "Link",
+   "label": "Chairperson",
+   "options": "SACCO Member"
+  },
+  {
+   "fetch_from": "chairperson.member_name",
+   "fieldname": "chairperson_name",
+   "fieldtype": "Data",
+   "label": "Chairperson Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "secretary",
+   "fieldtype": "Link",
+   "label": "Secretary",
+   "options": "SACCO Member"
+  },
+  {
+   "fetch_from": "secretary.member_name",
+   "fieldname": "secretary_name",
+   "fieldtype": "Data",
+   "label": "Secretary Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "treasurer",
+   "fieldtype": "Link",
+   "label": "Treasurer",
+   "options": "SACCO Member"
+  },
+  {
+   "fetch_from": "treasurer.member_name",
+   "fieldname": "treasurer_name",
+   "fieldtype": "Data",
+   "label": "Treasurer Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_stats",
+   "fieldtype": "Section Break",
+   "label": "Group Statistics"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_members",
+   "fieldtype": "Int",
+   "label": "Total Members",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_contributions",
+   "fieldtype": "Currency",
+   "label": "Total Contributions",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_loans",
+   "fieldtype": "Currency",
+   "label": "Total Loans Disbursed",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "active_loans",
+   "fieldtype": "Int",
+   "label": "Active Loans",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "SACCO Member",
+   "link_fieldname": "member_group"
+  }
+ ],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "SACCO",
+ "name": "Member Group",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Branch Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Teller"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Auditor"
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "group_code, branch",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "group_name",
+ "track_changes": 1
+}

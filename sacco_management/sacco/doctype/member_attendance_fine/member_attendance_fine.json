@@ -1,0 +1,265 @@
+{
+    "actions": [],
+    "autoname": "SACCO-ATF-.YYYY.-.#####",
+    "creation": "2024-01-01 00:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "member",
+        "member_name",
+        "branch",
+        "column_break_1",
+        "fine_type",
+        "meeting",
+        "meeting_date",
+        "section_break_2",
+        "amount",
+        "waived_amount",
+        "column_break_3",
+        "net_amount",
+        "section_break_4",
+        "posting_date",
+        "status",
+        "column_break_5",
+        "payment_date",
+        "payment_reference",
+        "section_break_6",
+        "reason",
+        "waiver_reason",
+        "section_break_7",
+        "gl_entry",
+        "amended_from"
+    ],
+    "fields": [
+        {
+            "fieldname": "member",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Member",
+            "options": "SACCO Member",
+            "reqd": 1
+        },
+        {
+            "fetch_from": "member.member_name",
+            "fieldname": "member_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Member Name",
+            "read_only": 1
+        },
+        {
+            "fetch_from": "member.branch",
+            "fieldname": "branch",
+            "fieldtype": "Link",
+            "in_standard_filter": 1,
+            "label": "Branch",
+            "options": "Branch",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "fine_type",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Fine Type",
+            "options": "Attendance Fine Type",
+            "reqd": 1
+        },
+        {
+            "fieldname": "meeting",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Meeting",
+            "options": "SACCO Meeting",
+            "reqd": 1
+        },
+        {
+            "fetch_from": "meeting.scheduled_date",
+            "fieldname": "meeting_date",
+            "fieldtype": "Date",
+            "label": "Meeting Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_2",
+            "fieldtype": "Section Break",
+            "label": "Amount Details"
+        },
+        {
+            "fieldname": "amount",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Fine Amount",
+            "reqd": 1
+        },
+        {
+            "default": "0",
+            "fieldname": "waived_amount",
+            "fieldtype": "Currency",
+            "label": "Waived Amount"
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "net_amount",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Net Amount",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_4",
+            "fieldtype": "Section Break",
+            "label": "Status"
+        },
+        {
+            "default": "Today",
+            "fieldname": "posting_date",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "label": "Posting Date",
+            "reqd": 1
+        },
+        {
+            "default": "Unpaid",
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Status",
+            "options": "Unpaid\nPartially Paid\nPaid\nWaived\nCancelled",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "payment_date",
+            "fieldtype": "Date",
+            "label": "Payment Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "payment_reference",
+            "fieldtype": "Data",
+            "label": "Payment Reference",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_6",
+            "fieldtype": "Section Break",
+            "label": "Notes"
+        },
+        {
+            "fieldname": "reason",
+            "fieldtype": "Small Text",
+            "label": "Fine Reason"
+        },
+        {
+            "fieldname": "waiver_reason",
+            "fieldtype": "Small Text",
+            "label": "Waiver Reason",
+            "depends_on": "waived_amount"
+        },
+        {
+            "fieldname": "section_break_7",
+            "fieldtype": "Section Break",
+            "label": "Accounting",
+            "collapsible": 1
+        },
+        {
+            "fieldname": "gl_entry",
+            "fieldtype": "Link",
+            "label": "GL Entry",
+            "options": "SACCO Journal Entry",
+            "read_only": 1
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "Member Attendance Fine",
+            "print_hide": 1,
+            "read_only": 1
+        }
+    ],
+    "is_submittable": 1,
+    "links": [],
+    "modified": "2024-01-01 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "SACCO",
+    "name": "Member Attendance Fine",
+    "naming_rule": "Expression",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "SACCO Admin",
+            "share": 1,
+            "submit": 1,
+            "write": 1,
+            "amend": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "SACCO Branch Manager",
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "SACCO Teller",
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "SACCO Auditor"
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}

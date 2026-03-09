@@ -1,0 +1,497 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "member_name",
+  "id_number",
+  "column_break_1",
+  "status",
+  "member_image",
+  "section_break_personal",
+  "date_of_birth",
+  "gender",
+  "marital_status",
+  "column_break_2",
+  "nationality",
+  "occupation",
+  "employer",
+  "section_break_contact",
+  "phone",
+  "alternate_phone",
+  "email",
+  "column_break_3",
+  "address",
+  "city",
+  "county",
+  "postal_code",
+  "section_break_membership",
+  "branch",
+  "member_group",
+  "join_date",
+  "column_break_4",
+  "membership_fee_paid",
+  "fee_payment_date",
+  "referral_member",
+  "section_break_nominees",
+  "nominees",
+  "section_break_kin",
+  "next_of_kin",
+  "section_break_balances",
+  "total_contributions",
+  "total_savings",
+  "column_break_5",
+  "total_shares",
+  "share_value",
+  "column_break_6",
+  "total_loans_taken",
+  "outstanding_loan_balance",
+  "column_break_7",
+  "total_fines",
+  "unpaid_fines",
+  "section_break_account",
+  "bank_name",
+  "bank_branch",
+  "account_number",
+  "column_break_8",
+  "mpesa_number",
+  "section_break_notes",
+  "notes",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "default": "MEM-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "MEM-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "member_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Full Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "id_number",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "ID/Passport Number",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Active\nInactive\nSuspended\nDeceased\nWithdrawn"
+  },
+  {
+   "fieldname": "member_image",
+   "fieldtype": "Attach Image",
+   "label": "Photo"
+  },
+  {
+   "fieldname": "section_break_personal",
+   "fieldtype": "Section Break",
+   "label": "Personal Information"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "\nMale\nFemale\nOther"
+  },
+  {
+   "fieldname": "marital_status",
+   "fieldtype": "Select",
+   "label": "Marital Status",
+   "options": "\nSingle\nMarried\nDivorced\nWidowed"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Kenyan",
+   "fieldname": "nationality",
+   "fieldtype": "Data",
+   "label": "Nationality"
+  },
+  {
+   "fieldname": "occupation",
+   "fieldtype": "Data",
+   "label": "Occupation"
+  },
+  {
+   "fieldname": "employer",
+   "fieldtype": "Data",
+   "label": "Employer"
+  },
+  {
+   "fieldname": "section_break_contact",
+   "fieldtype": "Section Break",
+   "label": "Contact Information"
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Phone",
+   "options": "Phone",
+   "reqd": 1
+  },
+  {
+   "fieldname": "alternate_phone",
+   "fieldtype": "Data",
+   "label": "Alternate Phone",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Small Text",
+   "label": "Physical Address"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City/Town"
+  },
+  {
+   "fieldname": "county",
+   "fieldtype": "Data",
+   "label": "County/Region"
+  },
+  {
+   "fieldname": "postal_code",
+   "fieldtype": "Data",
+   "label": "Postal Code"
+  },
+  {
+   "fieldname": "section_break_membership",
+   "fieldtype": "Section Break",
+   "label": "Membership Details"
+  },
+  {
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Branch",
+   "options": "Branch",
+   "reqd": 1
+  },
+  {
+   "fieldname": "member_group",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Member Group",
+   "options": "Member Group"
+  },
+  {
+   "default": "Today",
+   "fieldname": "join_date",
+   "fieldtype": "Date",
+   "label": "Join Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "membership_fee_paid",
+   "fieldtype": "Check",
+   "label": "Membership Fee Paid"
+  },
+  {
+   "depends_on": "membership_fee_paid",
+   "fieldname": "fee_payment_date",
+   "fieldtype": "Date",
+   "label": "Fee Payment Date"
+  },
+  {
+   "fieldname": "referral_member",
+   "fieldtype": "Link",
+   "label": "Referred By",
+   "options": "SACCO Member"
+  },
+  {
+   "fieldname": "section_break_nominees",
+   "fieldtype": "Section Break",
+   "label": "Nominees"
+  },
+  {
+   "fieldname": "nominees",
+   "fieldtype": "Table",
+   "label": "Nominees",
+   "options": "Member Nominee"
+  },
+  {
+   "fieldname": "section_break_kin",
+   "fieldtype": "Section Break",
+   "label": "Next of Kin"
+  },
+  {
+   "fieldname": "next_of_kin",
+   "fieldtype": "Table",
+   "label": "Next of Kin",
+   "options": "Member Next of Kin"
+  },
+  {
+   "fieldname": "section_break_balances",
+   "fieldtype": "Section Break",
+   "label": "Account Balances"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_contributions",
+   "fieldtype": "Currency",
+   "label": "Total Contributions",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_savings",
+   "fieldtype": "Currency",
+   "label": "Total Savings",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_shares",
+   "fieldtype": "Int",
+   "label": "Total Shares",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "share_value",
+   "fieldtype": "Currency",
+   "label": "Share Value",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_loans_taken",
+   "fieldtype": "Currency",
+   "label": "Total Loans Taken",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "outstanding_loan_balance",
+   "fieldtype": "Currency",
+   "label": "Outstanding Loan Balance",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_fines",
+   "fieldtype": "Currency",
+   "label": "Total Fines",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "unpaid_fines",
+   "fieldtype": "Currency",
+   "label": "Unpaid Fines",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_account",
+   "fieldtype": "Section Break",
+   "label": "Bank Account Details"
+  },
+  {
+   "fieldname": "bank_name",
+   "fieldtype": "Data",
+   "label": "Bank Name"
+  },
+  {
+   "fieldname": "bank_branch",
+   "fieldtype": "Data",
+   "label": "Bank Branch"
+  },
+  {
+   "fieldname": "account_number",
+   "fieldtype": "Data",
+   "label": "Account Number"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mpesa_number",
+   "fieldtype": "Data",
+   "label": "M-Pesa Number"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_notes",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "SACCO Member",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "image_field": "member_image",
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Member Contribution",
+   "link_fieldname": "member"
+  },
+  {
+   "link_doctype": "Loan Application",
+   "link_fieldname": "member"
+  },
+  {
+   "link_doctype": "Share Allocation",
+   "link_fieldname": "member"
+  },
+  {
+   "link_doctype": "Member Fine",
+   "link_fieldname": "member"
+  },
+  {
+   "link_doctype": "Loan Repayment",
+   "link_fieldname": "member"
+  }
+ ],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "SACCO",
+ "name": "SACCO Member",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Branch Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Teller",
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Loan Officer"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Auditor"
+  }
+ ],
+ "search_fields": "member_name, id_number, phone, branch",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "member_name",
+ "track_changes": 1
+}

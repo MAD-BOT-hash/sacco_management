@@ -1,0 +1,196 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:contribution_name",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "contribution_name",
+  "code",
+  "column_break_1",
+  "is_active",
+  "section_break_settings",
+  "is_mandatory",
+  "is_one_time",
+  "minimum_amount",
+  "maximum_amount",
+  "column_break_2",
+  "interest_applicable",
+  "interest_rate",
+  "interest_calculation_method",
+  "section_break_gl",
+  "default_gl_account",
+  "section_break_desc",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "contribution_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Contribution Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Code",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "section_break_settings",
+   "fieldtype": "Section Break",
+   "label": "Contribution Settings"
+  },
+  {
+   "default": "0",
+   "description": "If enabled, this contribution is required for all members",
+   "fieldname": "is_mandatory",
+   "fieldtype": "Check",
+   "label": "Is Mandatory"
+  },
+  {
+   "default": "0",
+   "description": "If enabled, this contribution is paid only once (e.g., registration fee)",
+   "fieldname": "is_one_time",
+   "fieldtype": "Check",
+   "label": "Is One-Time"
+  },
+  {
+   "default": "0",
+   "fieldname": "minimum_amount",
+   "fieldtype": "Currency",
+   "label": "Minimum Amount"
+  },
+  {
+   "default": "0",
+   "description": "0 = No limit",
+   "fieldname": "maximum_amount",
+   "fieldtype": "Currency",
+   "label": "Maximum Amount"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "description": "If enabled, interest will be calculated on this contribution",
+   "fieldname": "interest_applicable",
+   "fieldtype": "Check",
+   "label": "Interest Applicable"
+  },
+  {
+   "default": "0",
+   "depends_on": "interest_applicable",
+   "description": "Annual interest rate",
+   "fieldname": "interest_rate",
+   "fieldtype": "Percent",
+   "label": "Interest Rate (%)"
+  },
+  {
+   "depends_on": "interest_applicable",
+   "fieldname": "interest_calculation_method",
+   "fieldtype": "Select",
+   "label": "Interest Calculation Method",
+   "options": "\nSimple\nCompound"
+  },
+  {
+   "fieldname": "section_break_gl",
+   "fieldtype": "Section Break",
+   "label": "Accounting"
+  },
+  {
+   "fieldname": "default_gl_account",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Default GL Account",
+   "options": "SACCO GL Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_desc",
+   "fieldtype": "Section Break",
+   "label": "Description"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Member Contribution",
+   "link_fieldname": "contribution_type"
+  }
+ ],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "SACCO",
+ "name": "Contribution Type",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "SACCO Branch Manager"
+  },
+  {
+   "read": 1,
+   "role": "SACCO Teller"
+  },
+  {
+   "read": 1,
+   "role": "SACCO Auditor"
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "code",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "contribution_name",
+ "track_changes": 1
+}

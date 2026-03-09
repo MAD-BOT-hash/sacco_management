@@ -1,0 +1,225 @@
+[
+  {
+    "doctype": "Workflow",
+    "name": "Loan Application Workflow",
+    "document_type": "Loan Application",
+    "is_active": 1,
+    "workflow_state_field": "workflow_state",
+    "states": [
+      {
+        "state": "Draft",
+        "doc_status": "0",
+        "allow_edit": "SACCO Teller"
+      },
+      {
+        "state": "Pending Review",
+        "doc_status": "1",
+        "allow_edit": "SACCO Loan Officer"
+      },
+      {
+        "state": "Under Review",
+        "doc_status": "1",
+        "allow_edit": "SACCO Loan Officer"
+      },
+      {
+        "state": "Pending Approval",
+        "doc_status": "1",
+        "allow_edit": "SACCO Branch Manager"
+      },
+      {
+        "state": "Approved",
+        "doc_status": "1",
+        "allow_edit": "SACCO Branch Manager"
+      },
+      {
+        "state": "Rejected",
+        "doc_status": "1",
+        "allow_edit": "SACCO Branch Manager"
+      },
+      {
+        "state": "Disbursed",
+        "doc_status": "1",
+        "allow_edit": "SACCO Admin"
+      },
+      {
+        "state": "Cancelled",
+        "doc_status": "2",
+        "allow_edit": "SACCO Admin"
+      }
+    ],
+    "transitions": [
+      {
+        "state": "Draft",
+        "action": "Submit for Review",
+        "next_state": "Pending Review",
+        "allowed": "SACCO Teller",
+        "condition": ""
+      },
+      {
+        "state": "Pending Review",
+        "action": "Start Review",
+        "next_state": "Under Review",
+        "allowed": "SACCO Loan Officer",
+        "condition": ""
+      },
+      {
+        "state": "Under Review",
+        "action": "Recommend Approval",
+        "next_state": "Pending Approval",
+        "allowed": "SACCO Loan Officer",
+        "condition": ""
+      },
+      {
+        "state": "Under Review",
+        "action": "Reject",
+        "next_state": "Rejected",
+        "allowed": "SACCO Loan Officer",
+        "condition": ""
+      },
+      {
+        "state": "Pending Approval",
+        "action": "Approve",
+        "next_state": "Approved",
+        "allowed": "SACCO Branch Manager",
+        "condition": ""
+      },
+      {
+        "state": "Pending Approval",
+        "action": "Reject",
+        "next_state": "Rejected",
+        "allowed": "SACCO Branch Manager",
+        "condition": ""
+      },
+      {
+        "state": "Approved",
+        "action": "Disburse",
+        "next_state": "Disbursed",
+        "allowed": "SACCO Branch Manager",
+        "condition": ""
+      },
+      {
+        "state": "Rejected",
+        "action": "Cancel",
+        "next_state": "Cancelled",
+        "allowed": "SACCO Admin",
+        "condition": ""
+      }
+    ]
+  },
+  {
+    "doctype": "Workflow",
+    "name": "Share Allocation Workflow",
+    "document_type": "Share Allocation",
+    "is_active": 1,
+    "workflow_state_field": "status",
+    "states": [
+      {
+        "state": "Pending",
+        "doc_status": "0",
+        "allow_edit": "SACCO Teller"
+      },
+      {
+        "state": "Approved",
+        "doc_status": "1",
+        "allow_edit": "SACCO Branch Manager"
+      },
+      {
+        "state": "Allocated",
+        "doc_status": "1",
+        "allow_edit": "SACCO Admin"
+      },
+      {
+        "state": "Rejected",
+        "doc_status": "1",
+        "allow_edit": "SACCO Branch Manager"
+      }
+    ],
+    "transitions": [
+      {
+        "state": "Pending",
+        "action": "Submit for Approval",
+        "next_state": "Approved",
+        "allowed": "SACCO Branch Manager",
+        "condition": ""
+      },
+      {
+        "state": "Pending",
+        "action": "Reject",
+        "next_state": "Rejected",
+        "allowed": "SACCO Branch Manager",
+        "condition": ""
+      },
+      {
+        "state": "Approved",
+        "action": "Allocate",
+        "next_state": "Allocated",
+        "allowed": "SACCO Admin",
+        "condition": ""
+      }
+    ]
+  },
+  {
+    "doctype": "Workflow",
+    "name": "Dividend Declaration Workflow",
+    "document_type": "Dividend Declaration",
+    "is_active": 1,
+    "workflow_state_field": "status",
+    "states": [
+      {
+        "state": "Draft",
+        "doc_status": "0",
+        "allow_edit": "SACCO Admin"
+      },
+      {
+        "state": "Pending Approval",
+        "doc_status": "1",
+        "allow_edit": "SACCO Admin"
+      },
+      {
+        "state": "Approved",
+        "doc_status": "1",
+        "allow_edit": "SACCO Admin"
+      },
+      {
+        "state": "Paid",
+        "doc_status": "1",
+        "allow_edit": "SACCO Admin"
+      },
+      {
+        "state": "Cancelled",
+        "doc_status": "2",
+        "allow_edit": "SACCO Admin"
+      }
+    ],
+    "transitions": [
+      {
+        "state": "Draft",
+        "action": "Submit for Approval",
+        "next_state": "Pending Approval",
+        "allowed": "SACCO Admin",
+        "condition": ""
+      },
+      {
+        "state": "Pending Approval",
+        "action": "Approve",
+        "next_state": "Approved",
+        "allowed": "SACCO Admin",
+        "condition": ""
+      },
+      {
+        "state": "Pending Approval",
+        "action": "Reject",
+        "next_state": "Cancelled",
+        "allowed": "SACCO Admin",
+        "condition": ""
+      },
+      {
+        "state": "Approved",
+        "action": "Process Payments",
+        "next_state": "Paid",
+        "allowed": "SACCO Admin",
+        "condition": ""
+      }
+    ]
+  }
+]

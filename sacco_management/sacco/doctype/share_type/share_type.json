@@ -1,0 +1,183 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:share_name",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "share_name",
+  "code",
+  "column_break_1",
+  "is_active",
+  "section_break_settings",
+  "price_per_share",
+  "min_shares",
+  "max_shares",
+  "column_break_2",
+  "dividend_eligible",
+  "fixed_dividend_rate",
+  "transferable",
+  "section_break_gl",
+  "default_gl_account",
+  "section_break_desc",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "share_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Share Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Code",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "section_break_settings",
+   "fieldtype": "Section Break",
+   "label": "Share Settings"
+  },
+  {
+   "default": "100",
+   "fieldname": "price_per_share",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Price Per Share",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "min_shares",
+   "fieldtype": "Int",
+   "label": "Minimum Shares"
+  },
+  {
+   "default": "10000",
+   "description": "0 = No limit",
+   "fieldname": "max_shares",
+   "fieldtype": "Int",
+   "label": "Maximum Shares"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "dividend_eligible",
+   "fieldtype": "Check",
+   "label": "Dividend Eligible"
+  },
+  {
+   "depends_on": "dividend_eligible",
+   "description": "Fixed dividend rate for preference shares",
+   "fieldname": "fixed_dividend_rate",
+   "fieldtype": "Percent",
+   "label": "Fixed Dividend Rate (%)"
+  },
+  {
+   "default": "1",
+   "fieldname": "transferable",
+   "fieldtype": "Check",
+   "label": "Transferable"
+  },
+  {
+   "fieldname": "section_break_gl",
+   "fieldtype": "Section Break",
+   "label": "Accounting"
+  },
+  {
+   "fieldname": "default_gl_account",
+   "fieldtype": "Link",
+   "label": "Share Capital Account",
+   "options": "SACCO GL Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_desc",
+   "fieldtype": "Section Break",
+   "label": "Description"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Share Allocation",
+   "link_fieldname": "share_type"
+  },
+  {
+   "link_doctype": "Dividend Declaration",
+   "link_fieldname": "share_type"
+  }
+ ],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "SACCO",
+ "name": "Share Type",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "SACCO Branch Manager"
+  },
+  {
+   "read": 1,
+   "role": "SACCO Auditor"
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "code",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "share_name",
+ "track_changes": 1
+}

@@ -1,0 +1,166 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:fine_name",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "fine_name",
+  "code",
+  "column_break_1",
+  "is_active",
+  "section_break_settings",
+  "default_amount",
+  "is_percentage",
+  "percentage_rate",
+  "column_break_2",
+  "auto_apply",
+  "apply_after_days",
+  "section_break_gl",
+  "default_gl_account",
+  "section_break_desc",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "fine_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Fine Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Code",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "section_break_settings",
+   "fieldtype": "Section Break",
+   "label": "Fine Settings"
+  },
+  {
+   "default": "500",
+   "fieldname": "default_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Default Amount"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_percentage",
+   "fieldtype": "Check",
+   "label": "Is Percentage Based"
+  },
+  {
+   "depends_on": "is_percentage",
+   "fieldname": "percentage_rate",
+   "fieldtype": "Percent",
+   "label": "Percentage Rate"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "description": "Automatically apply fine based on rules",
+   "fieldname": "auto_apply",
+   "fieldtype": "Check",
+   "label": "Auto Apply"
+  },
+  {
+   "depends_on": "auto_apply",
+   "description": "Days after due date to apply fine",
+   "fieldname": "apply_after_days",
+   "fieldtype": "Int",
+   "label": "Apply After Days"
+  },
+  {
+   "fieldname": "section_break_gl",
+   "fieldtype": "Section Break",
+   "label": "Accounting"
+  },
+  {
+   "fieldname": "default_gl_account",
+   "fieldtype": "Link",
+   "label": "Fine Income Account",
+   "options": "SACCO GL Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_desc",
+   "fieldtype": "Section Break",
+   "label": "Description"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "SACCO",
+ "name": "Fine Type",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "SACCO Branch Manager"
+  },
+  {
+   "read": 1,
+   "role": "SACCO Auditor"
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "code",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "fine_name",
+ "track_changes": 1
+}

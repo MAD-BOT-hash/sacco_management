@@ -1,0 +1,13 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include sacco_management *.html
+recursive-include sacco_management *.css
+recursive-include sacco_management *.js
+recursive-include sacco_management *.json
+recursive-include sacco_management *.py
+recursive-include sacco_management *.md
+recursive-include sacco_management *.txt

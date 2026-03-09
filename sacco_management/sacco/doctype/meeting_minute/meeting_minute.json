@@ -1,0 +1,106 @@
+{
+    "actions": [],
+    "creation": "2024-01-01 00:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "minute_no",
+        "agenda_item",
+        "column_break_1",
+        "recorded_by",
+        "recorded_time",
+        "section_break_2",
+        "discussion_summary",
+        "section_break_3",
+        "action_items",
+        "responsible_person",
+        "column_break_4",
+        "due_date",
+        "status"
+    ],
+    "fields": [
+        {
+            "fieldname": "minute_no",
+            "fieldtype": "Int",
+            "in_list_view": 1,
+            "label": "Minute No",
+            "reqd": 1
+        },
+        {
+            "fieldname": "agenda_item",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Agenda Item Reference"
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "recorded_by",
+            "fieldtype": "Link",
+            "label": "Recorded By",
+            "options": "SACCO Member"
+        },
+        {
+            "fieldname": "recorded_time",
+            "fieldtype": "Time",
+            "label": "Time Recorded"
+        },
+        {
+            "fieldname": "section_break_2",
+            "fieldtype": "Section Break",
+            "label": "Discussion"
+        },
+        {
+            "fieldname": "discussion_summary",
+            "fieldtype": "Text Editor",
+            "in_list_view": 1,
+            "label": "Discussion Summary",
+            "reqd": 1
+        },
+        {
+            "fieldname": "section_break_3",
+            "fieldtype": "Section Break",
+            "label": "Action Items"
+        },
+        {
+            "fieldname": "action_items",
+            "fieldtype": "Small Text",
+            "label": "Action Items"
+        },
+        {
+            "fieldname": "responsible_person",
+            "fieldtype": "Link",
+            "label": "Responsible Person",
+            "options": "SACCO Member"
+        },
+        {
+            "fieldname": "column_break_4",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "due_date",
+            "fieldtype": "Date",
+            "label": "Due Date"
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "label": "Status",
+            "options": "Pending\nIn Progress\nCompleted\nOverdue",
+            "default": "Pending"
+        }
+    ],
+    "istable": 1,
+    "links": [],
+    "modified": "2024-01-01 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "SACCO",
+    "name": "Meeting Minute",
+    "owner": "Administrator",
+    "permissions": [],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": []
+}

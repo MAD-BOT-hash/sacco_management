@@ -1,0 +1,555 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "member",
+  "member_name",
+  "loan_type",
+  "column_break_1",
+  "application_date",
+  "status",
+  "workflow_state",
+  "section_break_amount",
+  "requested_amount",
+  "approved_amount",
+  "disbursed_amount",
+  "column_break_2",
+  "interest_rate",
+  "interest_method",
+  "tenure_months",
+  "section_break_calculations",
+  "total_interest",
+  "total_payable",
+  "monthly_installment",
+  "column_break_3",
+  "processing_fee",
+  "insurance_fee",
+  "net_disbursement",
+  "section_break_repayment",
+  "outstanding_amount",
+  "total_paid",
+  "total_principal_paid",
+  "column_break_4",
+  "total_interest_paid",
+  "total_penalty_paid",
+  "last_payment_date",
+  "section_break_schedule",
+  "repayment_schedule",
+  "section_break_guarantors",
+  "guarantors",
+  "total_guaranteed_amount",
+  "section_break_collateral",
+  "collateral",
+  "total_collateral_value",
+  "section_break_disbursement",
+  "disbursement_date",
+  "disbursement_mode",
+  "disbursement_reference",
+  "column_break_5",
+  "disbursed_by",
+  "section_break_approval",
+  "reviewed_by",
+  "review_date",
+  "review_remarks",
+  "column_break_6",
+  "approved_by",
+  "approval_date",
+  "approval_remarks",
+  "section_break_rejection",
+  "rejection_reason",
+  "section_break_gl",
+  "disbursement_journal_entry",
+  "gl_posted",
+  "section_break_remarks",
+  "remarks",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "default": "LOAN-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "LOAN-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "member",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Member",
+   "options": "SACCO Member",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "member.member_name",
+   "fieldname": "member_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Member Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "loan_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Loan Type",
+   "options": "Loan Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "application_date",
+   "fieldtype": "Date",
+   "in_standard_filter": 1,
+   "label": "Application Date",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nPending Review\nUnder Review\nPending Approval\nApproved\nRejected\nDisbursed\nActive\nClosed\nWritten Off",
+   "read_only": 1
+  },
+  {
+   "fieldname": "workflow_state",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Workflow State",
+   "options": "Workflow State",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_amount",
+   "fieldtype": "Section Break",
+   "label": "Loan Amount"
+  },
+  {
+   "fieldname": "requested_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Requested Amount",
+   "reqd": 1
+  },
+  {
+   "fieldname": "approved_amount",
+   "fieldtype": "Currency",
+   "label": "Approved Amount"
+  },
+  {
+   "fieldname": "disbursed_amount",
+   "fieldtype": "Currency",
+   "label": "Disbursed Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "loan_type.interest_rate",
+   "fieldname": "interest_rate",
+   "fieldtype": "Percent",
+   "label": "Interest Rate (%)"
+  },
+  {
+   "fetch_from": "loan_type.interest_method",
+   "fieldname": "interest_method",
+   "fieldtype": "Select",
+   "label": "Interest Method",
+   "options": "Flat Rate\nReducing Balance",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tenure_months",
+   "fieldtype": "Int",
+   "label": "Tenure (Months)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_calculations",
+   "fieldtype": "Section Break",
+   "label": "Loan Calculations"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_interest",
+   "fieldtype": "Currency",
+   "label": "Total Interest",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_payable",
+   "fieldtype": "Currency",
+   "label": "Total Payable",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "monthly_installment",
+   "fieldtype": "Currency",
+   "label": "Monthly Installment",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "processing_fee",
+   "fieldtype": "Currency",
+   "label": "Processing Fee",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "insurance_fee",
+   "fieldtype": "Currency",
+   "label": "Insurance Fee",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "net_disbursement",
+   "fieldtype": "Currency",
+   "label": "Net Disbursement",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_repayment",
+   "fieldtype": "Section Break",
+   "label": "Repayment Summary"
+  },
+  {
+   "default": "0",
+   "fieldname": "outstanding_amount",
+   "fieldtype": "Currency",
+   "label": "Outstanding Amount",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_paid",
+   "fieldtype": "Currency",
+   "label": "Total Paid",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_principal_paid",
+   "fieldtype": "Currency",
+   "label": "Total Principal Paid",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_interest_paid",
+   "fieldtype": "Currency",
+   "label": "Total Interest Paid",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_penalty_paid",
+   "fieldtype": "Currency",
+   "label": "Total Penalty Paid",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_payment_date",
+   "fieldtype": "Date",
+   "label": "Last Payment Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_schedule",
+   "fieldtype": "Section Break",
+   "label": "Repayment Schedule"
+  },
+  {
+   "fieldname": "repayment_schedule",
+   "fieldtype": "Table",
+   "label": "Repayment Schedule",
+   "options": "Loan Repayment Schedule"
+  },
+  {
+   "fieldname": "section_break_guarantors",
+   "fieldtype": "Section Break",
+   "label": "Guarantors"
+  },
+  {
+   "fieldname": "guarantors",
+   "fieldtype": "Table",
+   "label": "Guarantors",
+   "options": "Loan Guarantor"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_guaranteed_amount",
+   "fieldtype": "Currency",
+   "label": "Total Guaranteed Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_collateral",
+   "fieldtype": "Section Break",
+   "label": "Collateral"
+  },
+  {
+   "fieldname": "collateral",
+   "fieldtype": "Table",
+   "label": "Collateral",
+   "options": "Loan Collateral"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_collateral_value",
+   "fieldtype": "Currency",
+   "label": "Total Collateral Value",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval:doc.status == 'Disbursed' || doc.status == 'Active' || doc.status == 'Closed'",
+   "fieldname": "section_break_disbursement",
+   "fieldtype": "Section Break",
+   "label": "Disbursement Details"
+  },
+  {
+   "fieldname": "disbursement_date",
+   "fieldtype": "Date",
+   "label": "Disbursement Date"
+  },
+  {
+   "fieldname": "disbursement_mode",
+   "fieldtype": "Link",
+   "label": "Disbursement Mode",
+   "options": "Payment Mode"
+  },
+  {
+   "fieldname": "disbursement_reference",
+   "fieldtype": "Data",
+   "label": "Disbursement Reference"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "disbursed_by",
+   "fieldtype": "Link",
+   "label": "Disbursed By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_approval",
+   "fieldtype": "Section Break",
+   "label": "Review & Approval"
+  },
+  {
+   "fieldname": "reviewed_by",
+   "fieldtype": "Link",
+   "label": "Reviewed By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "review_date",
+   "fieldtype": "Date",
+   "label": "Review Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "review_remarks",
+   "fieldtype": "Small Text",
+   "label": "Review Remarks"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "Approved By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approval_date",
+   "fieldtype": "Date",
+   "label": "Approval Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approval_remarks",
+   "fieldtype": "Small Text",
+   "label": "Approval Remarks"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval:doc.status == 'Rejected'",
+   "fieldname": "section_break_rejection",
+   "fieldtype": "Section Break",
+   "label": "Rejection"
+  },
+  {
+   "fieldname": "rejection_reason",
+   "fieldtype": "Small Text",
+   "label": "Rejection Reason"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_gl",
+   "fieldtype": "Section Break",
+   "label": "Accounting"
+  },
+  {
+   "fieldname": "disbursement_journal_entry",
+   "fieldtype": "Link",
+   "label": "Disbursement Journal Entry",
+   "options": "SACCO Journal Entry",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "gl_posted",
+   "fieldtype": "Check",
+   "label": "GL Posted",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_remarks",
+   "fieldtype": "Section Break",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text Editor",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Loan Application",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "link_doctype": "Loan Repayment",
+   "link_fieldname": "loan"
+  }
+ ],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "SACCO",
+ "name": "Loan Application",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Admin",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Branch Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Loan Officer",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Teller"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Auditor"
+  }
+ ],
+ "search_fields": "member, member_name, loan_type, status",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

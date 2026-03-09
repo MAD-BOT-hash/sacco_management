@@ -1,0 +1,326 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:loan_name",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "loan_name",
+  "code",
+  "column_break_1",
+  "is_active",
+  "section_break_interest",
+  "interest_rate",
+  "interest_method",
+  "column_break_2",
+  "penalty_rate",
+  "grace_period_days",
+  "section_break_limits",
+  "min_amount",
+  "max_amount",
+  "max_loan_multiplier",
+  "column_break_3",
+  "min_tenure_months",
+  "max_tenure_months",
+  "min_contribution_months",
+  "section_break_fees",
+  "processing_fee_percent",
+  "processing_fee_fixed",
+  "column_break_4",
+  "insurance_fee_percent",
+  "section_break_guarantors",
+  "requires_guarantors",
+  "min_guarantors",
+  "max_guarantor_amount_percent",
+  "column_break_5",
+  "requires_collateral",
+  "min_collateral_value_percent",
+  "section_break_gl",
+  "default_gl_account",
+  "interest_income_account",
+  "section_break_desc",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "loan_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Loan Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Code",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "section_break_interest",
+   "fieldtype": "Section Break",
+   "label": "Interest Settings"
+  },
+  {
+   "default": "12",
+   "description": "Annual interest rate",
+   "fieldname": "interest_rate",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Interest Rate (%)",
+   "reqd": 1
+  },
+  {
+   "default": "Reducing Balance",
+   "fieldname": "interest_method",
+   "fieldtype": "Select",
+   "label": "Interest Method",
+   "options": "Flat Rate\nReducing Balance",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "5",
+   "description": "Penalty rate on overdue amount",
+   "fieldname": "penalty_rate",
+   "fieldtype": "Percent",
+   "label": "Penalty Rate (%)"
+  },
+  {
+   "default": "7",
+   "description": "Days after due date before penalty applies",
+   "fieldname": "grace_period_days",
+   "fieldtype": "Int",
+   "label": "Grace Period (Days)"
+  },
+  {
+   "fieldname": "section_break_limits",
+   "fieldtype": "Section Break",
+   "label": "Loan Limits"
+  },
+  {
+   "default": "10000",
+   "fieldname": "min_amount",
+   "fieldtype": "Currency",
+   "label": "Minimum Amount",
+   "reqd": 1
+  },
+  {
+   "default": "500000",
+   "fieldname": "max_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Maximum Amount",
+   "reqd": 1
+  },
+  {
+   "default": "3",
+   "description": "Maximum loan as multiple of member savings",
+   "fieldname": "max_loan_multiplier",
+   "fieldtype": "Float",
+   "label": "Max Loan Multiplier"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "3",
+   "fieldname": "min_tenure_months",
+   "fieldtype": "Int",
+   "label": "Min Tenure (Months)",
+   "reqd": 1
+  },
+  {
+   "default": "24",
+   "fieldname": "max_tenure_months",
+   "fieldtype": "Int",
+   "label": "Max Tenure (Months)",
+   "reqd": 1
+  },
+  {
+   "default": "6",
+   "description": "Minimum months of contribution before qualifying",
+   "fieldname": "min_contribution_months",
+   "fieldtype": "Int",
+   "label": "Min Contribution Months"
+  },
+  {
+   "fieldname": "section_break_fees",
+   "fieldtype": "Section Break",
+   "label": "Fees"
+  },
+  {
+   "default": "1",
+   "fieldname": "processing_fee_percent",
+   "fieldtype": "Percent",
+   "label": "Processing Fee (%)"
+  },
+  {
+   "default": "0",
+   "fieldname": "processing_fee_fixed",
+   "fieldtype": "Currency",
+   "label": "Processing Fee (Fixed)"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "insurance_fee_percent",
+   "fieldtype": "Percent",
+   "label": "Insurance Fee (%)"
+  },
+  {
+   "fieldname": "section_break_guarantors",
+   "fieldtype": "Section Break",
+   "label": "Guarantor & Collateral Requirements"
+  },
+  {
+   "default": "1",
+   "fieldname": "requires_guarantors",
+   "fieldtype": "Check",
+   "label": "Requires Guarantors"
+  },
+  {
+   "default": "2",
+   "depends_on": "requires_guarantors",
+   "fieldname": "min_guarantors",
+   "fieldtype": "Int",
+   "label": "Minimum Guarantors"
+  },
+  {
+   "default": "100",
+   "depends_on": "requires_guarantors",
+   "description": "Max amount a guarantor can guarantee as % of their savings",
+   "fieldname": "max_guarantor_amount_percent",
+   "fieldtype": "Percent",
+   "label": "Max Guarantor Amount (%)"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "requires_collateral",
+   "fieldtype": "Check",
+   "label": "Requires Collateral"
+  },
+  {
+   "default": "100",
+   "depends_on": "requires_collateral",
+   "description": "Minimum collateral value as % of loan amount",
+   "fieldname": "min_collateral_value_percent",
+   "fieldtype": "Percent",
+   "label": "Min Collateral Value (%)"
+  },
+  {
+   "fieldname": "section_break_gl",
+   "fieldtype": "Section Break",
+   "label": "Accounting"
+  },
+  {
+   "fieldname": "default_gl_account",
+   "fieldtype": "Link",
+   "label": "Loans Receivable Account",
+   "options": "SACCO GL Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "interest_income_account",
+   "fieldtype": "Link",
+   "label": "Interest Income Account",
+   "options": "SACCO GL Account"
+  },
+  {
+   "fieldname": "section_break_desc",
+   "fieldtype": "Section Break",
+   "label": "Description"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Loan Application",
+   "link_fieldname": "loan_type"
+  }
+ ],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "SACCO",
+ "name": "Loan Type",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "SACCO Branch Manager"
+  },
+  {
+   "read": 1,
+   "role": "SACCO Loan Officer"
+  },
+  {
+   "read": 1,
+   "role": "SACCO Teller"
+  },
+  {
+   "read": 1,
+   "role": "SACCO Auditor"
+  }
+ ],
+ "search_fields": "code",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "loan_name",
+ "track_changes": 1
+}

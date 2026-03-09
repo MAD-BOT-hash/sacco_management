@@ -1,0 +1,129 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:mode_name",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "mode_name",
+  "mode_code",
+  "column_break_1",
+  "is_active",
+  "section_break_gl",
+  "gl_account",
+  "column_break_2",
+  "requires_reference",
+  "reference_label"
+ ],
+ "fields": [
+  {
+   "fieldname": "mode_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Mode Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "mode_code",
+   "fieldtype": "Data",
+   "label": "Mode Code"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "section_break_gl",
+   "fieldtype": "Section Break",
+   "label": "GL Settings"
+  },
+  {
+   "fieldname": "gl_account",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "GL Account",
+   "options": "SACCO GL Account"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "description": "Require reference number for this payment mode (e.g., cheque number, transaction ID)",
+   "fieldname": "requires_reference",
+   "fieldtype": "Check",
+   "label": "Requires Reference Number"
+  },
+  {
+   "depends_on": "requires_reference",
+   "fieldname": "reference_label",
+   "fieldtype": "Data",
+   "label": "Reference Label",
+   "mandatory_depends_on": "requires_reference"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "SACCO",
+ "name": "Payment Mode",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SACCO Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "SACCO Branch Manager"
+  },
+  {
+   "read": 1,
+   "role": "SACCO Teller"
+  },
+  {
+   "read": 1,
+   "role": "SACCO Auditor"
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "mode_code",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "mode_name",
+ "track_changes": 1
+}

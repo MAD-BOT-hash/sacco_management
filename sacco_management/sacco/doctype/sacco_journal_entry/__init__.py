@@ -1,0 +1,1 @@
+# SACCO Journal Entry DocType

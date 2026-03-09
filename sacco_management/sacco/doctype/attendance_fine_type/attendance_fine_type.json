@@ -1,0 +1,192 @@
+{
+    "actions": [],
+    "autoname": "field:fine_type_name",
+    "creation": "2024-01-01 00:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "fine_type_name",
+        "attendance_type",
+        "column_break_1",
+        "amount",
+        "is_active",
+        "section_break_2",
+        "gl_account",
+        "receivable_account",
+        "section_break_3",
+        "apply_rules",
+        "section_break_4",
+        "grace_period_minutes",
+        "meeting_types",
+        "column_break_5",
+        "waiver_allowed",
+        "max_waiver_percent",
+        "section_break_6",
+        "description"
+    ],
+    "fields": [
+        {
+            "fieldname": "fine_type_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Fine Type Name",
+            "reqd": 1,
+            "unique": 1
+        },
+        {
+            "fieldname": "attendance_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Attendance Type",
+            "options": "Absent\nLate",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "amount",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Default Amount",
+            "reqd": 1
+        },
+        {
+            "default": "1",
+            "fieldname": "is_active",
+            "fieldtype": "Check",
+            "label": "Is Active"
+        },
+        {
+            "fieldname": "section_break_2",
+            "fieldtype": "Section Break",
+            "label": "GL Accounts"
+        },
+        {
+            "fieldname": "gl_account",
+            "fieldtype": "Link",
+            "label": "Fine Income Account",
+            "options": "SACCO GL Account",
+            "description": "Credit account for fine income"
+        },
+        {
+            "fieldname": "receivable_account",
+            "fieldtype": "Link",
+            "label": "Receivable Account",
+            "options": "SACCO GL Account",
+            "description": "Debit account for member receivables"
+        },
+        {
+            "fieldname": "section_break_3",
+            "fieldtype": "Section Break",
+            "label": "Auto-Apply Rules",
+            "collapsible": 1
+        },
+        {
+            "default": "1",
+            "fieldname": "apply_rules",
+            "fieldtype": "Check",
+            "label": "Apply Automatically",
+            "description": "Automatically generate fines when meeting is completed"
+        },
+        {
+            "fieldname": "section_break_4",
+            "fieldtype": "Section Break"
+        },
+        {
+            "default": "15",
+            "fieldname": "grace_period_minutes",
+            "fieldtype": "Int",
+            "label": "Grace Period (Minutes)",
+            "depends_on": "eval:doc.attendance_type == 'Late'",
+            "description": "Minutes after meeting start before marking as late"
+        },
+        {
+            "fieldname": "meeting_types",
+            "fieldtype": "Small Text",
+            "label": "Applicable Meeting Types",
+            "description": "Comma-separated list of meeting types. Leave blank for all."
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "1",
+            "fieldname": "waiver_allowed",
+            "fieldtype": "Check",
+            "label": "Waiver Allowed"
+        },
+        {
+            "default": "100",
+            "fieldname": "max_waiver_percent",
+            "fieldtype": "Percent",
+            "label": "Max Waiver %",
+            "depends_on": "waiver_allowed"
+        },
+        {
+            "fieldname": "section_break_6",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "description",
+            "fieldtype": "Small Text",
+            "label": "Description"
+        }
+    ],
+    "links": [],
+    "modified": "2024-01-01 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "SACCO",
+    "name": "Attendance Fine Type",
+    "naming_rule": "By fieldname",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "SACCO Admin",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "SACCO Branch Manager"
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "SACCO Auditor"
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}

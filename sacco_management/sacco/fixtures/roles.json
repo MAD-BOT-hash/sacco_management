@@ -1,0 +1,32 @@
+[
+  {
+    "doctype": "Role",
+    "role_name": "SACCO Teller",
+    "desk_access": 1,
+    "two_factor_auth": 0
+  },
+  {
+    "doctype": "Role",
+    "role_name": "SACCO Loan Officer",
+    "desk_access": 1,
+    "two_factor_auth": 0
+  },
+  {
+    "doctype": "Role",
+    "role_name": "SACCO Branch Manager",
+    "desk_access": 1,
+    "two_factor_auth": 0
+  },
+  {
+    "doctype": "Role",
+    "role_name": "SACCO Admin",
+    "desk_access": 1,
+    "two_factor_auth": 0
+  },
+  {
+    "doctype": "Role",
+    "role_name": "SACCO Auditor",
+    "desk_access": 1,
+    "two_factor_auth": 0
+  }
+]

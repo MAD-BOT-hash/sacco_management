@@ -1,0 +1,403 @@
+{
+  "charts": [
+    {
+      "chart_name": "Contributions by Month",
+      "label": "Monthly Contributions"
+    },
+    {
+      "chart_name": "Loan Disbursements",
+      "label": "Loan Disbursements"
+    }
+  ],
+  "number_cards": [
+    {
+      "label": "Total Members",
+      "number_card_name": "Total Members"
+    },
+    {
+      "label": "Active Loans",
+      "number_card_name": "Active Loans"
+    },
+    {
+      "label": "Total Contributions",
+      "number_card_name": "Total Contributions"
+    },
+    {
+      "label": "Share Capital",
+      "number_card_name": "Share Capital"
+    }
+  ],
+  "content": "[{\"id\":\"wdMrDw7MvW\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>SACCO Management</b></span>\",\"col\":12}},{\"id\":\"nc1\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Members\",\"col\":3}},{\"id\":\"nc2\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Loans\",\"col\":3}},{\"id\":\"nc3\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Contributions\",\"col\":3}},{\"id\":\"nc4\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Share Capital\",\"col\":3}},{\"id\":\"sp1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"QfK9Xt6nLm\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"SACCO Member\",\"col\":3}},{\"id\":\"Ty8sQw4bVn\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Member Contribution\",\"col\":3}},{\"id\":\"Lp6yRt3mKj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Loan Application\",\"col\":3}},{\"id\":\"Hn4wEr2pXs\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Loan Repayment\",\"col\":3}},{\"id\":\"Zx9cVb1nMq\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"Df5gHj8kLp\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h5\\\"><b>Quick Access</b></span>\",\"col\":12}},{\"id\":\"Rt7yUi0oPs\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Share Allocation\",\"col\":3}},{\"id\":\"Ws3eRf6tYu\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Member Fine\",\"col\":3}},{\"id\":\"dv1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Dividend Declaration\",\"col\":3}},{\"id\":\"Nm8bVc5xZl\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"SACCO Journal Entry\",\"col\":3}}]",
+  "creation": "2024-01-01 00:00:00.000000",
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "bank",
+  "idx": 0,
+  "is_hidden": 0,
+  "label": "SACCO",
+  "links": [
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Members",
+      "link_count": 0,
+      "link_to": "SACCO Member",
+      "link_type": "DocType",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Member Contributions",
+      "link_count": 0,
+      "link_to": "Member Contribution",
+      "link_type": "DocType",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Loan Applications",
+      "link_count": 0,
+      "link_to": "Loan Application",
+      "link_type": "DocType",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Loan Repayments",
+      "link_count": 0,
+      "link_to": "Loan Repayment",
+      "link_type": "DocType",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Share Allocations",
+      "link_count": 0,
+      "link_to": "Share Allocation",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Member Fines",
+      "link_count": 0,
+      "link_to": "Member Fine",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Journal Entries",
+      "link_count": 0,
+      "link_to": "SACCO Journal Entry",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "GL Accounts",
+      "link_count": 0,
+      "link_to": "SACCO GL Account",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "link_type": "DocType",
+      "type": "Card Break",
+      "label": "Setup"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Branches",
+      "link_count": 0,
+      "link_to": "Branch",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Member Groups",
+      "link_count": 0,
+      "link_to": "Member Group",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Contribution Types",
+      "link_count": 0,
+      "link_to": "Contribution Type",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Loan Types",
+      "link_count": 0,
+      "link_to": "Loan Type",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Share Types",
+      "link_count": 0,
+      "link_to": "Share Type",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Fine Types",
+      "link_count": 0,
+      "link_to": "Fine Type",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Payment Modes",
+      "link_count": 0,
+      "link_to": "Payment Mode",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Dividend Declarations",
+      "link_count": 0,
+      "link_to": "Dividend Declaration",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "link_type": "DocType",
+      "type": "Card Break",
+      "label": "Meetings"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "SACCO Meetings",
+      "link_count": 0,
+      "link_to": "SACCO Meeting",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Meeting Register",
+      "link_count": 0,
+      "link_to": "Meeting Register",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Attendance Fine Types",
+      "link_count": 0,
+      "link_to": "Attendance Fine Type",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Member Attendance Fines",
+      "link_count": 0,
+      "link_to": "Member Attendance Fine",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "link_type": "DocType",
+      "type": "Card Break",
+      "label": "Reports"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 1,
+      "label": "Member Statement",
+      "link_count": 0,
+      "link_to": "Member Statement",
+      "link_type": "Report",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 1,
+      "label": "Contribution Summary",
+      "link_count": 0,
+      "link_to": "Contribution Summary",
+      "link_type": "Report",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 1,
+      "label": "Loan Performance",
+      "link_count": 0,
+      "link_to": "Loan Performance",
+      "link_type": "Report",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 1,
+      "label": "Share Capital Report",
+      "link_count": 0,
+      "link_to": "Share Capital Report",
+      "link_type": "Report",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 1,
+      "label": "Trial Balance",
+      "link_count": 0,
+      "link_to": "Trial Balance",
+      "link_type": "Report",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 1,
+      "label": "General Ledger",
+      "link_count": 0,
+      "link_to": "General Ledger",
+      "link_type": "Report",
+      "onboard": 0,
+      "type": "Link"
+    }
+  ],
+  "modified": "2024-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "SACCO",
+  "name": "SACCO",
+  "owner": "Administrator",
+  "parent_page": "",
+  "public": 1,
+  "restrict_to_domain": "",
+  "roles": [],
+  "sequence_id": 1,
+  "shortcuts": [
+    {
+      "color": "Blue",
+      "doc_view": "List",
+      "label": "SACCO Member",
+      "link_to": "SACCO Member",
+      "type": "DocType"
+    },
+    {
+      "color": "Green",
+      "doc_view": "List",
+      "label": "Member Contribution",
+      "link_to": "Member Contribution",
+      "type": "DocType"
+    },
+    {
+      "color": "Orange",
+      "doc_view": "List",
+      "label": "Loan Application",
+      "link_to": "Loan Application",
+      "type": "DocType"
+    },
+    {
+      "color": "Yellow",
+      "doc_view": "List",
+      "label": "Loan Repayment",
+      "link_to": "Loan Repayment",
+      "type": "DocType"
+    },
+    {
+      "color": "Purple",
+      "doc_view": "List",
+      "label": "Share Allocation",
+      "link_to": "Share Allocation",
+      "type": "DocType"
+    },
+    {
+      "color": "Red",
+      "doc_view": "List",
+      "label": "Member Fine",
+      "link_to": "Member Fine",
+      "type": "DocType"
+    },
+    {
+      "color": "Grey",
+      "doc_view": "List",
+      "label": "Branch",
+      "link_to": "Branch",
+      "type": "DocType"
+    },
+    {
+      "color": "Cyan",
+      "doc_view": "List",
+      "label": "SACCO Journal Entry",
+      "link_to": "SACCO Journal Entry",
+      "type": "DocType"
+    },
+    {
+      "color": "Pink",
+      "doc_view": "List",
+      "label": "Dividend Declaration",
+      "link_to": "Dividend Declaration",
+      "type": "DocType"
+    },
+    {
+      "color": "Teal",
+      "doc_view": "List",
+      "label": "SACCO Meeting",
+      "link_to": "SACCO Meeting",
+      "type": "DocType"
+    }
+  ],
+  "title": "SACCO Management"
+}

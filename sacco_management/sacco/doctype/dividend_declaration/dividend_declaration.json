@@ -1,0 +1,228 @@
+{
+    "actions": [],
+    "autoname": "SACCO-DIV-.YYYY.-.#####",
+    "creation": "2024-01-01 00:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "share_type",
+        "branch",
+        "column_break_1",
+        "declaration_date",
+        "status",
+        "section_break_2",
+        "period_from",
+        "period_to",
+        "column_break_3",
+        "dividend_rate",
+        "withholding_tax_rate",
+        "section_break_4",
+        "total_shares",
+        "total_gross_dividend",
+        "column_break_5",
+        "total_withholding_tax",
+        "total_net_dividend",
+        "section_break_6",
+        "dividend_payments",
+        "section_break_7",
+        "remarks",
+        "amended_from"
+    ],
+    "fields": [
+        {
+            "fieldname": "share_type",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Share Type",
+            "options": "Share Type",
+            "reqd": 1
+        },
+        {
+            "fieldname": "branch",
+            "fieldtype": "Link",
+            "in_standard_filter": 1,
+            "label": "Branch",
+            "options": "Branch",
+            "description": "Leave blank for all branches"
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "Today",
+            "fieldname": "declaration_date",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "label": "Declaration Date",
+            "reqd": 1
+        },
+        {
+            "default": "Draft",
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Status",
+            "options": "Draft\nPending Approval\nApproved\nPaid\nCancelled",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_2",
+            "fieldtype": "Section Break",
+            "label": "Period"
+        },
+        {
+            "fieldname": "period_from",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "label": "Period From",
+            "reqd": 1
+        },
+        {
+            "fieldname": "period_to",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "label": "Period To",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "dividend_rate",
+            "fieldtype": "Percent",
+            "label": "Dividend Rate (%)",
+            "reqd": 1
+        },
+        {
+            "default": "0",
+            "fieldname": "withholding_tax_rate",
+            "fieldtype": "Percent",
+            "label": "Withholding Tax Rate (%)"
+        },
+        {
+            "fieldname": "section_break_4",
+            "fieldtype": "Section Break",
+            "label": "Summary"
+        },
+        {
+            "fieldname": "total_shares",
+            "fieldtype": "Float",
+            "label": "Total Shares",
+            "precision": "2",
+            "read_only": 1
+        },
+        {
+            "fieldname": "total_gross_dividend",
+            "fieldtype": "Currency",
+            "label": "Total Gross Dividend",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "total_withholding_tax",
+            "fieldtype": "Currency",
+            "label": "Total Withholding Tax",
+            "read_only": 1
+        },
+        {
+            "fieldname": "total_net_dividend",
+            "fieldtype": "Currency",
+            "label": "Total Net Dividend",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_6",
+            "fieldtype": "Section Break",
+            "label": "Dividend Payments"
+        },
+        {
+            "fieldname": "dividend_payments",
+            "fieldtype": "Table",
+            "label": "Dividend Payments",
+            "options": "Dividend Payment"
+        },
+        {
+            "fieldname": "section_break_7",
+            "fieldtype": "Section Break",
+            "label": "Notes"
+        },
+        {
+            "fieldname": "remarks",
+            "fieldtype": "Text",
+            "label": "Remarks"
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "Dividend Declaration",
+            "print_hide": 1,
+            "read_only": 1
+        }
+    ],
+    "is_submittable": 1,
+    "links": [],
+    "modified": "2024-01-01 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "SACCO",
+    "name": "Dividend Declaration",
+    "naming_rule": "Expression",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "SACCO Admin",
+            "share": 1,
+            "submit": 1,
+            "write": 1,
+            "amend": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "SACCO Branch Manager"
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "SACCO Auditor"
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}

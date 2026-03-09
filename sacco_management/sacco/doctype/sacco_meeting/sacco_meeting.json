@@ -1,0 +1,339 @@
+{
+    "actions": [],
+    "autoname": "SACCO-MTG-.YYYY.-.#####",
+    "creation": "2024-01-01 00:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "meeting_type",
+        "title",
+        "column_break_1",
+        "branch",
+        "member_group",
+        "section_break_2",
+        "scheduled_date",
+        "scheduled_time",
+        "column_break_3",
+        "end_time",
+        "duration_hours",
+        "section_break_4",
+        "venue",
+        "venue_address",
+        "column_break_5",
+        "status",
+        "meeting_link",
+        "section_break_6",
+        "chairperson",
+        "secretary",
+        "column_break_7",
+        "quorum_required",
+        "quorum_present",
+        "section_break_8",
+        "agenda_items",
+        "section_break_9",
+        "minutes",
+        "section_break_10",
+        "attendance_summary",
+        "total_invited",
+        "total_present",
+        "column_break_11",
+        "total_absent",
+        "total_late",
+        "section_break_12",
+        "notes",
+        "amended_from"
+    ],
+    "fields": [
+        {
+            "fieldname": "meeting_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Meeting Type",
+            "options": "Annual General Meeting\nSpecial General Meeting\nBoard Meeting\nCommittee Meeting\nBranch Meeting\nGroup Meeting\nEmergency Meeting",
+            "reqd": 1
+        },
+        {
+            "fieldname": "title",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Meeting Title",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "branch",
+            "fieldtype": "Link",
+            "in_standard_filter": 1,
+            "label": "Branch",
+            "options": "Branch"
+        },
+        {
+            "fieldname": "member_group",
+            "fieldtype": "Link",
+            "label": "Member Group",
+            "options": "Member Group",
+            "depends_on": "branch"
+        },
+        {
+            "fieldname": "section_break_2",
+            "fieldtype": "Section Break",
+            "label": "Schedule"
+        },
+        {
+            "fieldname": "scheduled_date",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Scheduled Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "scheduled_time",
+            "fieldtype": "Time",
+            "label": "Start Time",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "end_time",
+            "fieldtype": "Time",
+            "label": "End Time"
+        },
+        {
+            "fieldname": "duration_hours",
+            "fieldtype": "Float",
+            "label": "Duration (Hours)",
+            "precision": "1",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_4",
+            "fieldtype": "Section Break",
+            "label": "Venue Details"
+        },
+        {
+            "fieldname": "venue",
+            "fieldtype": "Data",
+            "label": "Venue",
+            "reqd": 1
+        },
+        {
+            "fieldname": "venue_address",
+            "fieldtype": "Small Text",
+            "label": "Venue Address"
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "Scheduled",
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Status",
+            "options": "Draft\nScheduled\nIn Progress\nCompleted\nPostponed\nCancelled",
+            "read_only": 1
+        },
+        {
+            "fieldname": "meeting_link",
+            "fieldtype": "Data",
+            "label": "Online Meeting Link",
+            "options": "URL"
+        },
+        {
+            "fieldname": "section_break_6",
+            "fieldtype": "Section Break",
+            "label": "Officials"
+        },
+        {
+            "fieldname": "chairperson",
+            "fieldtype": "Link",
+            "label": "Chairperson",
+            "options": "SACCO Member"
+        },
+        {
+            "fieldname": "secretary",
+            "fieldtype": "Link",
+            "label": "Secretary",
+            "options": "SACCO Member"
+        },
+        {
+            "fieldname": "column_break_7",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "quorum_required",
+            "fieldtype": "Int",
+            "label": "Quorum Required"
+        },
+        {
+            "fieldname": "quorum_present",
+            "fieldtype": "Int",
+            "label": "Quorum Present",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_8",
+            "fieldtype": "Section Break",
+            "label": "Agenda"
+        },
+        {
+            "fieldname": "agenda_items",
+            "fieldtype": "Table",
+            "label": "Agenda Items",
+            "options": "Meeting Agenda Item"
+        },
+        {
+            "fieldname": "section_break_9",
+            "fieldtype": "Section Break",
+            "label": "Minutes"
+        },
+        {
+            "fieldname": "minutes",
+            "fieldtype": "Table",
+            "label": "Meeting Minutes",
+            "options": "Meeting Minute"
+        },
+        {
+            "fieldname": "section_break_10",
+            "fieldtype": "Section Break",
+            "label": "Attendance Summary",
+            "collapsible": 1
+        },
+        {
+            "fieldname": "attendance_summary",
+            "fieldtype": "HTML",
+            "label": "Attendance Summary"
+        },
+        {
+            "fieldname": "total_invited",
+            "fieldtype": "Int",
+            "label": "Total Invited",
+            "read_only": 1
+        },
+        {
+            "fieldname": "total_present",
+            "fieldtype": "Int",
+            "label": "Total Present",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_11",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "total_absent",
+            "fieldtype": "Int",
+            "label": "Total Absent",
+            "read_only": 1
+        },
+        {
+            "fieldname": "total_late",
+            "fieldtype": "Int",
+            "label": "Total Late",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_12",
+            "fieldtype": "Section Break",
+            "label": "Additional Notes"
+        },
+        {
+            "fieldname": "notes",
+            "fieldtype": "Text Editor",
+            "label": "Notes"
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "SACCO Meeting",
+            "print_hide": 1,
+            "read_only": 1
+        }
+    ],
+    "is_submittable": 1,
+    "links": [
+        {
+            "link_doctype": "Meeting Register",
+            "link_fieldname": "meeting"
+        }
+    ],
+    "modified": "2024-01-01 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "SACCO",
+    "name": "SACCO Meeting",
+    "naming_rule": "Expression",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "SACCO Admin",
+            "share": 1,
+            "submit": 1,
+            "write": 1,
+            "amend": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "SACCO Branch Manager",
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "SACCO Teller",
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "SACCO Auditor"
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}
