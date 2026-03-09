@@ -204,7 +204,7 @@ DASHBOARD_CHARTS = [
     },
     {
         "chart_name": "Member Growth",
-        "chart_type": "Standard",
+        "chart_type": "Custom",
         "doctype": "Dashboard Chart",
         "document_type": "SACCO Member",
         "based_on": "creation",
@@ -219,7 +219,7 @@ DASHBOARD_CHARTS = [
     },
     {
         "chart_name": "Loan Disbursement Trend",
-        "chart_type": "Standard",
+        "chart_type": "Custom",
         "doctype": "Dashboard Chart",
         "document_type": "Loan Application",
         "based_on": "disbursement_date",
@@ -235,7 +235,7 @@ DASHBOARD_CHARTS = [
     },
     {
         "chart_name": "Savings Growth",
-        "chart_type": "Standard",
+        "chart_type": "Custom",
         "doctype": "Dashboard Chart",
         "document_type": "Savings Account",
         "based_on": "creation",
@@ -251,7 +251,7 @@ DASHBOARD_CHARTS = [
     },
     {
         "chart_name": "Share Capital Growth",
-        "chart_type": "Standard",
+        "chart_type": "Custom",
         "doctype": "Dashboard Chart",
         "document_type": "Share Allocation",
         "based_on": "allocation_date",
